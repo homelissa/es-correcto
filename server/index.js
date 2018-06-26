@@ -9,7 +9,7 @@ const express = require("express"),
 
 //connect db to server
 mongoose.connect(config.database);
-
+const server2 = app.listen(27017);
   //start server
 const server = app.listen(config.port);
 console.log("your server is running on " + config.port + "." );
