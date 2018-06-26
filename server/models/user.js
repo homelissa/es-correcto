@@ -25,7 +25,7 @@ const UserSchema = new Schema({
   },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
-  notifications: [Notification]
+  notifications: [{type: mongoose.Schema.Types.ObjectId, ref: "Notification"}]
 },
 {
   timestamps: true
