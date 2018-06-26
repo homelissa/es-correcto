@@ -5,8 +5,8 @@ const mongoose = require('mongoose'),
 
 const ProductSchema = new Schema({
   name:{type: String},
-  plans:[ Plan ],
-  users: [ User ]
+  plans:[ {type: mongoose.Schema.Types.ObjectId, ref: "Plan"} ],
+  users: [ {type: mongoose.Schema.Types.ObjectId, ref: "User"}]
 });
 
 module.exports = mongoose.model("Product", ProductSchema);
