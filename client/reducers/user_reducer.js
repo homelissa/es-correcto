@@ -1,10 +1,11 @@
-import { RECEIVE_CURRENT_USER} from '../actions/session_action';
+import { RECEIVE_CURRENT_USER } from '../actions/session_action';
 import merge from 'lodash/merge';
 
-const userReducer = (state={},action) => {
+const userReducer = (state={ profile: {}, error: '' },action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({},state,{user: action.currentUser});
+      return {...state, profile: action.currentUser }
+      // return merge({},state,{user: action.currentUser});
     default:
       return state;
   }

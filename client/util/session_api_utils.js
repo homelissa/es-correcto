@@ -1,5 +1,4 @@
 export const register = user => {
-  // let user1 = { user };
   return $.ajax({
     method: 'POST',
     url: 'http://localhost:3000/api/auth/register',
@@ -13,11 +12,12 @@ export const login = user => {
   return $.ajax({
     type: 'POST',
     url: 'http://localhost:3000/api/auth/login',
-    data: { user }
+    dataType: 'html',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(user)
+    // data: { user }
   });
 };
-
-
 
 
 // export const logout = () => (
@@ -29,19 +29,33 @@ export const login = user => {
 
 
 export function errorHandler(dispatch, error, type) {
-  console.log('Error type: ', type);
-  console.log(error);
+  let errorMessage = '';
 
-  let errorMessage = error.response ? error.response.data : error;
-
-   // NOT AUTHENTICATED ERROR
-  if (error.status === 401 || error.response.status === 401) {
-    errorMessage = 'You are not authorized to do this.';
-    // return dispatch(logoutUser(errorMessage));
+  if (error.responseText) {
+    errorMessage = error.responseText;
+  } else if (error.statusText) {
+    errorMessage = error.statusText;
+  } else {
+    errorMessage = "Unsuccessful. Try again";
   }
 
-  dispatch({
-    type,
-    payload: errorMessage,
-  });
+  
+
+  if (error.status === 401) {
+    dispatch({
+      type: type,
+      payload: 'You are not authorized to do this. Please login and try again.'
+    });
+    // logoutUser();
+  } else if (error.status === 400) {
+    dispatch({
+      type: type,
+      payload: 'Please enter email,password,first name and last name'
+    });
+  }else {
+    dispatch({
+      type: type,
+      payload: errorMessage
+    });
+  }
 }

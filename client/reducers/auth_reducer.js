@@ -1,4 +1,4 @@
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from '../actions/session_action';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, RECEIVE_CURRENT_USER } from '../actions/session_action';
 
 const INITIAL_STATE = { error: '', user: '', authenticated: false };
 

@@ -25,18 +25,19 @@ export const logoutCurrentUser = () => ({
 
 
 export const login = user => dispatch => {
-  return APIUtil.login(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ))
-  .then((response)=>{
-    cookie.save('token', response.responseText.token, { path: '/'});
-    cookie.save('user', response.responseText.user, { path: '/'});
+  return APIUtil.login(user).then(user => {
+    let data = JSON.parse(user);
+    cookie.save('token', data.token, { path: '/'});
+    
+    cookie.save('user', data.user, { path: '/'});
     dispatch({type: AUTH_USER });
-    window.location.href = `${CLIENT_ROOT_URL}/dashboard`;
-  })
-  .catch((error) => {
-    APIUtil.errorHandler(dispatch,error.response,AUTH_ERROR);
-  });
+    // window.location.href = CLIENT_ROOT_URL + "/";
+    
+    dispatch(receiveCurrentUser(user));
+  },(error) => {
+      console.log(error)
+      APIUtil.errorHandler(dispatch,error,AUTH_ERROR);
+    });
 };
 
 // export const logout = () => dispatch => (
@@ -53,7 +54,7 @@ export const register = user => dispatch => {
     cookie.save('token', response.responseText.token, { path: '/'});
     cookie.save('user', response.responseText.user, { path: '/'});
     dispatch({type: AUTH_USER });
-    window.location.href = `${CLIENT_ROOT_URL}/dashboard`;
+    window.location.href = CLIENT_ROOT_URL + "/";
   })
   .catch((error) => {
     APIUtil.errorHandler(dispatch,error.response,AUTH_ERROR);
@@ -65,3 +66,4 @@ export const register = user => dispatch => {
 //     type: CLEARERRORS
 //   };
 // };
+
