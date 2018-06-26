@@ -52,7 +52,7 @@ var user1 = new User({
           notifications: []
 });
 
-user1.save();
+// user1.save();
 
 
 var currentDate = new Date();
@@ -71,7 +71,7 @@ var plan1 = new Plan({
           enrollmentDate: currentDate
 });
 
-plan1.save();
+// plan1.save();
 
 
 // // debugger
@@ -86,7 +86,11 @@ var product = new Product({
           plans: [ plan1 ],
           users: [ user1 ]
 });
-
+product.update(
+  {name: "Spotify"},
+  {$set: {"userobj": user1}}
+);
+console.log(product);
 product.save();
 //
 //

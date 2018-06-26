@@ -2,8 +2,8 @@ const AuthenticationController = require('./controllers/authentication'),
   ProductController = require("./controllers/product"),
   express = require('express'),
   passportService = require('./config/passport'),
-  passport = require('passport');
-
+  passport = require('passport'),
+  UtilController = require('./controllers/util');
 const requireAuth = passport.authenticate('jwt', { session: false});
 const requireLogin = passport.authenticate('local', { session: false});
 
@@ -22,7 +22,10 @@ module.exports = function(app) {
   app.use('/api', apiRoutes);
   apiRoutes.use('/products', productRoutes);
   productRoutes.get('/', ProductController.getProducts);
+  productRoutes.get("/:name", ProductController.getProduct);
+  productRoutes.get("/user/:userId", ProductController.getUserProducts);
 
+  apiRoutes.get('/users', UtilController.getUsers);
 };
 
 
