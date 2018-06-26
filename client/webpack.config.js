@@ -2,10 +2,10 @@ let path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'lib'),
-    filename: "bundle.js"
+    path: __dirname,
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -25,7 +25,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './',
   },
   devtool: 'source-map',
   resolve: {
