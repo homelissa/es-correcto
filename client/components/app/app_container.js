@@ -5,13 +5,14 @@ import { withRouter } from 'react-router-dom';
 import cookie from 'react-cookies';
 
 const mapStateToProps = state => {
-  return { 
+  return {
     loggedIn: state.auth.authenticated,
     token: state.user.profile.token
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
+  console.log("mdp");
   return {
     loadUserFromToken: () => {
       return cookie.load('token');

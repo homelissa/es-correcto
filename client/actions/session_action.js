@@ -28,11 +28,11 @@ export const login = user => dispatch => {
   return APIUtil.login(user).then(user => {
     let data = JSON.parse(user);
     cookie.save('token', data.token, { path: '/'});
-    
+
     cookie.save('user', data.user, { path: '/'});
     dispatch({type: AUTH_USER });
     // window.location.href = CLIENT_ROOT_URL + "/";
-    
+
     dispatch(receiveCurrentUser(user));
   },(error) => {
       console.log(error)
@@ -47,23 +47,22 @@ export const login = user => dispatch => {
 // );
 
 export const register = user => dispatch => {
-  return APIUtil.register(user).then(user => (
-    dispatch(receiveCurrentUser(user))
-  ))
-  .then((response)=>{
-    cookie.save('token', response.responseText.token, { path: '/'});
-    cookie.save('user', response.responseText.user, { path: '/'});
-    dispatch({type: AUTH_USER });
-    window.location.href = CLIENT_ROOT_URL + "/";
-  })
-  .catch((error) => {
-    APIUtil.errorHandler(dispatch,error.response,AUTH_ERROR);
-  });
-};
+  return APIUtil.register(user).then(user => {
+    let data = JSON.parse(user);
+    cookie.save('token', data.token, { path: '/'});
 
+    cookie.save('user', data.user, { path: '/'});
+    dispatch({type: AUTH_USER });
+    // window.location.href = CLIENT_ROOT_URL + "/";
+
+    dispatch(receiveCurrentUser(user));
+  },(error) => {
+      console.log(error)
+      APIUtil.errorHandler(dispatch,error,AUTH_ERROR);
+    });
+};
 // export const clearErrors = () => {
 //   return {
 //     type: CLEARERRORS
 //   };
 // };
-
