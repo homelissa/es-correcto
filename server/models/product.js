@@ -5,8 +5,8 @@ const mongoose = require('mongoose'),
 
 const ProductSchema = new Schema({
   name:{type: String},
-  plans:[ {type: mongoose.Schema.Types.ObjectId, ref: "Plan"} ],
-  users: [ {type: mongoose.Schema.Types.ObjectId, ref: "User"}]
+  plans:[ Plan.schema ],
+  users: [ User.schema ]
   // plans:[ {type: Plan} ],
   // users: [ {type: User}]
 });

@@ -8,5 +8,5 @@ const PlanSchema = new Schema({
     contractLength: {type: Number},
     enrollmentDate: {type: Date}
 });
-
-module.exports = mongoose.model('Plan', PlanSchema);
+module.exports.schema = PlanSchema;
+module.exports.model = mongoose.model('Plan', PlanSchema);
