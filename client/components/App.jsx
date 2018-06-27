@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+import DashboardContainer from './dashboard/dashboard_container';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import cookie from 'react-cookies';
 
 import {
@@ -13,12 +14,22 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-function App(){
+const App = () => {
+  return (
+    <div>
+        <AuthRoute exact path="/login" component={LoginFormContainer}/>
+        <AuthRoute exact path="/signup" component={SignupFormContainer}/>
 
+        <ProtectedRoute exact path='/' component={DashboardContainer} />
+      <Switch>
 
-  <Switch>
-  <AuthRoute path="/login" LoginFormContainer/>
-  <AuthRoute path="signup" SignupFormContainer/>
-  </Switch>
+      </Switch>
+
+    </div>
+
+  );
+
   
-}
+};
+
+export default App;

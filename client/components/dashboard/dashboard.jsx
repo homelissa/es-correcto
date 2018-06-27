@@ -13,25 +13,13 @@ import {
   HashRouter
 } from 'react-router-dom';
 
-class App extends React.Component {
+class Dashboard extends React.Component {
 
   // constructor(props){
   //   super(props);
   //
   // }
 
-  componentWillMount() {
-    let token = cookie.load('token');
-    if (token){
-      let actualToken = token.split('.')[1];
-      console.log(actualToken);
-      let userInfo = actualToken.replace('-', '+').replace('_', '/');
-      console.log(userInfo);
-      let currentUser= JSON.parse(window.atob(userInfo));
-      console.log(currentUser);
-      this.props.token = this.props.loadUserFromToken();
-    }
-  }
 
   handleclick(){
 
@@ -57,19 +45,11 @@ class App extends React.Component {
             </div>
           </div>
 
-          <LoginFormContainer/>
-          <SignupFormContainer/>
         </header>
 
-
-
-        <Switch>
-          <AuthRoute path="/login" LoginFormContainer/>
-          <AuthRoute path="signup" SignupFormContainer/>
-        </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default Dashboard;

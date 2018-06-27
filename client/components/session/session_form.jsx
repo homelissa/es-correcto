@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -105,9 +105,10 @@ class SessionForm extends React.Component {
           <br/>
           Welcome to Es Correcto!
           <br/>
-          Please {this.props.formType}
+          Please {this.props.formType} or 
+          {this.props.formType === 'Signup' ? <Link to="/login" className="auth-switch"> Login instead</Link> : <Link to="/signup" className="auth-switch"> Sign Up instead</Link> }
           {sharedFormSection()}
-          { this.props.formType === 'Signup' ? otherSection() : <br/> }
+          { this.props.formType === 'Signup' ? otherSection() : <div></div> }
           <br/>
           <button onClick={this.handleSubmit} className="session-submit" type="submit">{this.props.formType}</button>
           <br/>

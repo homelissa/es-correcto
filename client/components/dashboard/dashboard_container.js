@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import App from './app';
+import Dashboard from './dashboard';
 import { withRouter } from 'react-router-dom';
 import cookie from 'react-cookies';
 import { logout } from '../../actions/session_action';
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // added withRouter here because app.js was blocking rerenders without it
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Dashboard));
