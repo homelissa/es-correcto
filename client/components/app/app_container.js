@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import App from './app';
 import { withRouter } from 'react-router-dom';
 import cookie from 'react-cookies';
+import { logout } from '../../actions/session_action';
 
 const mapStateToProps = state => {
   return {
@@ -14,14 +15,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   console.log("mdp");
   return {
-    loadUserFromToken: () => {
-      return cookie.load('token');
-      // let token = state.user.profile.token; //sessionStorage.getItem('jwtToken');
-      // if (!token || token === '') {//if there is no token, dont bother
-      //   return;
-      // }
-      // dispatch(meFromToken(token));
-    },
+    // loadUserFromToken: () => {
+    //   return cookie.load('token'),
+    // },
+    logout: () => dispatch(logout())
   };
 };
 

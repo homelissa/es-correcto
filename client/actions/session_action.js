@@ -46,6 +46,15 @@ export const login = user => dispatch => {
 //   ))
 // );
 
+export const logout = () => dispatch => {
+
+    dispatch({ type: UNAUTH_USER });
+    cookie.remove('token', { path: '/' });
+    // window.location.href = CLIENT_ROOT_URL + '/';
+
+};
+
+
 export const register = user => dispatch => {
   return APIUtil.register(user).then(user => {
     let data = JSON.parse(user);
@@ -57,7 +66,7 @@ export const register = user => dispatch => {
 
     dispatch(receiveCurrentUser(user));
   },(error) => {
-      console.log(error)
+      console.log(error);
       APIUtil.errorHandler(dispatch,error,AUTH_ERROR);
     });
 };
