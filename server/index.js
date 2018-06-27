@@ -8,7 +8,8 @@ const express = require("express"),
 
 
 //connect db to server
-mongoose.connect(config.database);
+const db = require("./config/main").mongouri;
+mongoose.connect(db).then(()=>console.log('Connected to mongo'));
 // const server2 = app.listen(27017);
   //start server
 const server = app.listen(config.port);
