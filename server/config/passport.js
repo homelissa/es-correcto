@@ -1,5 +1,7 @@
 const passport = require("passport"),
-  User = require("../models/user"),
+
+  UserObj = require("../models/user"),
+  User = UserObj.model,
   config = require("./main"),
   JwtStrategy = require("passport-jwt").Strategy,
   ExtractJwt = require("passport-jwt").ExtractJwt,
