@@ -118,3 +118,15 @@
   padding-right: 18px;
   padding-left: 18px;
 }
+
+.demo-login {
+  font-weight: 500;
+  font-size: 16px;
+  background: white;
+  color: #212124;
+  border-radius: 3px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 18px;
+  padding-left: 18px;
+}

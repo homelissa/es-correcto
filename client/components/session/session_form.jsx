@@ -30,6 +30,30 @@ class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    let password = "password";
+    const newdemo = () => {
+      setTimeout(() => {
+        if (password.length > 0) {
+          this.setState({
+            email: "jerry5@gmail.com",
+            password: this.state.password.concat(password[0])
+          });
+          password = password.slice(1);
+          newdemo();
+        }
+        else {
+          this.props.login(this.state)
+            .then(() => this.props.history.push('/'));
+        }
+      }, 150);
+
+    };
+    newdemo();
+
+  }
+
   // handleDemoSubmit(e) {
   //   e.preventDefault();
   //   this.props.login({ username: "anseladams", password: "qwer0987" })
@@ -113,6 +137,9 @@ class SessionForm extends React.Component {
           <button onClick={this.handleSubmit} className="session-submit" type="submit">{this.props.formType}</button>
           <br/>
           <br/>
+          <input className="demo-login"
+            onClick={(e) => this.demoLogin(e)} type="submit" value="Demo" />
+          <br />
         </form>
       </div>
       </div>
