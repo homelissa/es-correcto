@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
   Schema = mongoose.Schema,
+  Notification = require("./notification"),
   bcrypt = require("bcrypt-nodejs");
 
 const UserSchema = new Schema({
@@ -24,6 +25,7 @@ const UserSchema = new Schema({
   },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
+  notifications: [{type: mongoose.Schema.Types.ObjectId, ref: "Notification"}]
 },
 {
   timestamps: true
@@ -55,5 +57,5 @@ UserSchema.methods.comparePassword = function(candidatePassword, cb) {
     cb(null, isMatch);
   });
 };
-
-module.exports = mongoose.model("User", UserSchema);
+module.exports.schema = UserSchema;
+module.exports.model = mongoose.model("User", UserSchema);
