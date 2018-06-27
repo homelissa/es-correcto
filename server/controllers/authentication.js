@@ -2,7 +2,8 @@
 
 const jwt = require('jsonwebtoken'),
   crypto = require('crypto'),
-  User = require('../models/user'),
+  UserObj = require('../models/user'),
+  User = UserObj.model,
   config = require('../config/main');
 
 function generateToken(user) {
