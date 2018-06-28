@@ -1,29 +1,16 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import LoginFormContainer from '../session/loginform_container';
-import SignupFormContainer from '../session/registerform_container';
-import { AuthRoute, ProtectedRoute } from '../../util/route_util';
-import cookie from 'react-cookies';
+// import { Provider } from 'react-redux';
+// import LoginFormContainer from '../session/loginform_container';
+// import SignupFormContainer from '../session/registerform_container';
+// import { AuthRoute, ProtectedRoute } from '../../util/route_util';
+// import cookie from 'react-cookies';
 
 import {
-  Route,
   Redirect,
-  Switch,
   Link,
-  HashRouter
 } from 'react-router-dom';
 
 class Dashboard extends React.Component {
-
-  // constructor(props){
-  //   super(props);
-  //
-  // }
-
-
-  handleclick(){
-
-  }
 
   render() {
     return (

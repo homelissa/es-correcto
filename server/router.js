@@ -32,3 +32,5 @@ module.exports = function(app) {
 
 // http://localhost:3000/api/auth/login
 // http://localhost:3000/api/auth/register
+// http://localhost:3000/api/products/Spotify
+// http://localhost:3000/api/products

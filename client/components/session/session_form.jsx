@@ -12,7 +12,7 @@ class SessionForm extends React.Component {
       errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
 
   componentWillUnmount() {
@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
       setTimeout(() => {
         if (password.length > 0) {
           this.setState({
-            email: "jerry5@gmail.com",
+            email: 'escorrecto@gmail.com',
             password: this.state.password.concat(password[0])
           });
           password = password.slice(1);

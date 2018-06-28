@@ -3,6 +3,7 @@ import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, CLEARERRORS, RECEIVE_CURRENT_USER }
 const INITIAL_STATE = { error: '', user: '', authenticated: false };
 
 export default function (state = INITIAL_STATE, action) {
+  Object.freeze(state);
   switch (action.type) {
     case AUTH_USER:
       return { ...state, error: '', message: '', authenticated: true };

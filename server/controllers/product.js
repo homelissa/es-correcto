@@ -1,3 +1,5 @@
+"use strict";
+
 var Product = require('../models/product.js');
 var User = require('../models/user.js');
 
@@ -17,10 +19,16 @@ exports.getProducts = function(req, res, next) {
 exports.getProduct = function(req, res, next) {
   const product = Product.findOne({name: req.params.name}, function(err, doc){
     console.log(doc);
-    doc.users = null;
-    res.send(doc);
+    if (!doc) {
+      console.log("product doesnt exist");
+      return res.status(422).send({ error: 'This route does not exist'});
+    } else{
+      doc.users = null;
+      res.send(doc);
+    }
   });
 };
+
 
 exports.getUserProducts = function(req, res, next) {
   const userId = req.params.userId;
@@ -36,11 +44,11 @@ exports.getUserProducts = function(req, res, next) {
 };
 
 exports.addUser = function(req, res, next){
-  console.log(`req.body.user.id: ${req.body.user.id}`);
+  // console.log(`req.body.user.id: ${req.body.user.id}`);
   const user = User.model.findById(req.user.id);
   const product = Product.findOne({name: req.params.name});
   var doc = product.users.insert(user);
-  console.log(doc);
+  // console.log(doc);
   res.send(doc);
 
 };
