@@ -15,7 +15,7 @@ class SessionForm extends React.Component {
 
   }
 
-  componentWillUnmount() {
+  componentDidMount() {
     this.props.clearForm();
   }
 
@@ -62,16 +62,16 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     console.log(this.props)
+    let slice;
+    if (this.props.formType === "Signup") {
+      if (this.props.errors) {
+        slice = this.props.errors.slice(10, this.props.errors.length - 2);
+      }
+    } else {
+      slice = this.props.errors;
+    }
     return(
-    (this.props.errors.length !== 0 ? 
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li className="errors"key={`error-${i}`}>
-              {error}
-          </li>
-        ))}
-      </ul>
-      : <div></div> )
+      <div className="errors">{slice}</div>
     );
   }
 
@@ -136,6 +136,8 @@ class SessionForm extends React.Component {
           Please {this.props.formType} or 
 
           {this.props.formType === 'Signup' ? <Link to="/login" className="auth-switch"> Login instead</Link> : <Link to="/signup" className="auth-switch"> Sign Up instead</Link> }
+          <br/>
+          <br/>
           {this.renderErrors()}
           
           {sharedFormSection()}
