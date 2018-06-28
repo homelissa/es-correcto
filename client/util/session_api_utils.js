@@ -39,12 +39,12 @@ export function errorHandler(dispatch, error, type) {
     errorMessage = "Unsuccessful. Try again";
   }
 
-  
+
 
   if (error.status === 401) {
     dispatch({
       type: type,
-      payload: 'You are not authorized to do this. Please login and try again.'
+      payload: 'This username and password combination is not correct.'
     });
     // logoutUser();
   } else if (error.status === 400) {

@@ -11,7 +11,7 @@ class SessionForm extends React.Component {
       lastName: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
 
   // componentWillUnmount() {
@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
       setTimeout(() => {
         if (password.length > 0) {
           this.setState({
-            email: "jerry5@gmail.com",
+            email: 'escorrecto@gmail.com',
             password: this.state.password.concat(password[0])
           });
           password = password.slice(1);
@@ -129,7 +129,7 @@ class SessionForm extends React.Component {
           <br/>
           Welcome to Es Correcto!
           <br/>
-          Please {this.props.formType} or 
+          Please {this.props.formType} or
           {this.props.formType === 'Signup' ? <Link to="/login" className="auth-switch"> Login instead</Link> : <Link to="/signup" className="auth-switch"> Sign Up instead</Link> }
           {sharedFormSection()}
           { this.props.formType === 'Signup' ? otherSection() : <div></div> }

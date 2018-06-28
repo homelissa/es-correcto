@@ -6,9 +6,12 @@ import Root from '../components/root';
 import cookie from 'react-cookies';
 
 // import { register, login } from '../util/session_api_utils';
+// import { fetchOneProduct,fetchAllProducts,createProduct } from '../util/product_util';
 import rootReducer from '../reducers/root_reducer';
 import userReducer from '../reducers//user_reducer';
+import productReducer from '../reducers//product_reducer';
 import { RECEIVE_CURRENT_USER,AUTH_USER,UNAUTH_USER,receiveCurrentUser,login,register,logout} from '../actions/session_action';
+import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestOneProduct,requestAllProducts,createProduct} from '../actions/product_action';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -17,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let actualToken = token.split('.')[1];
     let userInfo = actualToken.replace('-', '+').replace('_', '/');
     let currentUser = JSON.parse(window.atob(userInfo));
+    console.log(currentUser);
 
     const preloadedState = {
       auth:  { authenticated: true },
@@ -28,8 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // window.register = register;
-  // window.login = login;
+  // window.fetchOneProduct = fetchOneProduct;
+  // window.fetchAllProducts = fetchAllProducts;
+  window.requestOneProduct = requestOneProduct;
+  window.requestAllProducts = requestAllProducts;
+
+  window.createProduct = createProduct;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
