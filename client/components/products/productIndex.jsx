@@ -17,9 +17,15 @@ class ProductIndex extends React.Component {
           <div>
             {product.plans.map(plan =>
               <ul>
-                <li>{plan.cost}</li>
-                <li>{plan.paymentFrequency}</li>
-                <li>{plan.contractLength}</li>
+                <li>
+                  Cost: {plan.cost}
+                </li>
+                <li>
+                  Payment Frequency: {plan.paymentFrequency}
+                </li>
+                <li>
+                  Contract Length: {plan.contractLength}
+                </li>
               </ul>
             )}
           </div>
