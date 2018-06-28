@@ -9,14 +9,15 @@ class SessionForm extends React.Component {
       password: '',
       firstName: '',
       lastName: '',
+      errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearForm();
-  // }
+  componentWillUnmount() {
+    this.props.clearForm();
+  }
 
   update(field) {
     return e => this.setState({
@@ -59,17 +60,20 @@ class SessionForm extends React.Component {
   //   this.props.login({ username: "anseladams", password: "qwer0987" })
   // }
 
-  // renderErrors() {
-  //   return(
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li className="errors"key={`error-${i}`}>
-  //           {error}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  renderErrors() {
+    console.log(this.props)
+    return(
+    (this.props.errors.length !== 0 ? 
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li className="errors"key={`error-${i}`}>
+              {error}
+          </li>
+        ))}
+      </ul>
+      : <div></div> )
+    );
+  }
 
   render() {
     const sharedFormSection = () => {
@@ -130,7 +134,10 @@ class SessionForm extends React.Component {
           Welcome to Es Correcto!
           <br/>
           Please {this.props.formType} or 
+
           {this.props.formType === 'Signup' ? <Link to="/login" className="auth-switch"> Login instead</Link> : <Link to="/signup" className="auth-switch"> Sign Up instead</Link> }
+          {this.renderErrors()}
+          
           {sharedFormSection()}
           { this.props.formType === 'Signup' ? otherSection() : <div></div> }
           <br/>

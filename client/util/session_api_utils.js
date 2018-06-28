@@ -50,7 +50,7 @@ export function errorHandler(dispatch, error, type) {
   } else if (error.status === 400) {
     dispatch({
       type: type,
-      payload: 'Please enter email,password,first name and last name'
+      payload: 'Please enter email, password, first name, and last name.'
     });
   }else {
     dispatch({
