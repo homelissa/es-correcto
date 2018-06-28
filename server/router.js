@@ -1,5 +1,6 @@
 const AuthenticationController = require('./controllers/authentication'),
   ProductController = require("./controllers/product"),
+  PlanController = require("./controllers/plan"),
   express = require('express'),
   passportService = require('./config/passport'),
   passport = require('passport'),
@@ -14,17 +15,23 @@ module.exports = function(app) {
 
   const apiRoutes = express.Router(),
         authRoutes = express.Router(),
-        productRoutes = express.Router();
+        productRoutes = express.Router(),
+        planRoutes = express.Router();
 
   apiRoutes.use('/auth', authRoutes);
   authRoutes.post('/register', AuthenticationController.register);
   authRoutes.post('/login', requireLogin, AuthenticationController.login);
   app.use('/api', apiRoutes);
   apiRoutes.use('/products', productRoutes);
+
   productRoutes.get('/', ProductController.getProducts);
   productRoutes.get("/:name", ProductController.getProduct);
   productRoutes.get("/user/:userId", ProductController.getUserProducts);
   productRoutes.post("/:name/add", ProductController.addUser);
+
+  app.post('/api/plans', PlanController.addPlan);
+  app.get('/api/plans', PlanController.getPlans);
+  app.get('/api/plans/:planId', PlanController.getPlan);
 
   apiRoutes.get('/users', UtilController.getUsers);
 };

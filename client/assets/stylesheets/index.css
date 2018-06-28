@@ -134,3 +134,7 @@
 .errors {
   list-style-type: none;
 }
+
+.logout-button {
+  cursor: pointer;
+}
