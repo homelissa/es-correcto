@@ -2,20 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ProductIndex from './productIndex';
 import { withRouter } from 'react-router-dom';
-import {fetchOneProduct,
-  fetchAllProducts,
+import {requestOneProduct,
+  requestAllProducts,
   createProduct} from '../../actions/product_action';
 
 const mapStateToProps = state => {
   return {
-    products: state.products
+    products: Object.values(state.products)
   };
 };
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchAllProducts: () => dispatch(fetchAllProducts())
+    fetchAllProducts: () => dispatch(requestAllProducts())
   };
 };
 

@@ -6,19 +6,28 @@ class ProductIndex extends React.Component {
     this.props.fetchAllProducts();
   }
 
-render(){
-  return (
-    <div>
-      this.props.products.map(product =>
-        product.name
-        product.plans.map(plan =>
-        plan.cost;
-        plan.paymentFrequency;
-        plan.contractLength;
-        )
-      )
-    </div>
-  );
+  render(){
+    return (
+      <div>
+        {this.props.products.map(product =>
+          <div>
+            <h4>
+              {product.name}
+            </h4>
+          <div>
+            {product.plans.map(plan =>
+              <ul>
+                <li>{plan.cost}</li>
+                <li>{plan.paymentFrequency}</li>
+                <li>{plan.contractLength}</li>
+              </ul>
+            )}
+          </div>
+        </div>
+        )}
+      </div>
+    );
+  }
 }
 
-}
+export default ProductIndex;

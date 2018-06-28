@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
 import DashboardContainer from './dashboard/dashboard_container';
+import ProductIndexContainer from './products/productIndex_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import cookie from 'react-cookies';
 
@@ -22,6 +23,7 @@ const App = () => {
 
         <ProtectedRoute exact path='/' component={DashboardContainer} />
       <Switch>
+        <ProtectedRoute exact path="/products" component={ProductIndexContainer}/>
 
       </Switch>
 
