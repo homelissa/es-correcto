@@ -7,11 +7,12 @@ import cookie from 'react-cookies';
 
 // import { register, login } from '../util/session_api_utils';
 // import { fetchOneProduct,fetchAllProducts,createProduct } from '../util/product_util';
+import { requestOnePlan,requestAllPlans,createPlan, removePlan } from '../actions/plan_action';
 import rootReducer from '../reducers/root_reducer';
 import userReducer from '../reducers//user_reducer';
 import productReducer from '../reducers//product_reducer';
 import { RECEIVE_CURRENT_USER,AUTH_USER,UNAUTH_USER,receiveCurrentUser,login,register,logout} from '../actions/session_action';
-import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestOneProduct,requestAllProducts,createProduct} from '../actions/product_action';
+import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,fetchOneProduct,requestAllProducts,createProduct} from '../actions/product_action';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -34,10 +35,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // window.fetchOneProduct = fetchOneProduct;
   // window.fetchAllProducts = fetchAllProducts;
-  window.requestOneProduct = requestOneProduct;
+  // window.requestOneProduct = requestOneProduct;
   window.requestAllProducts = requestAllProducts;
-
   window.createProduct = createProduct;
+
+  window.requestOnePlan = requestOnePlan;
+  window.requestAllPlans = requestAllPlans;
+  window.createPlan = createPlan;
+  window.removePlan = removePlan;
+
+
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 
