@@ -13,9 +13,9 @@ const PlanSchema = new Schema({
       type: Number
     },
     enrollmentDate: {type: Date},
-    // userId: {
-    //   type: String
-    // },
+    userId: {
+      type: String
+    },
     // productId: {
     //   type: String
     // }

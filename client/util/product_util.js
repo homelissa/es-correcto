@@ -1,4 +1,5 @@
 import cookie from 'react-cookies';
+let token = cookie.load('token');
 
 export const createProduct = (input_product) => {
   return $.ajax({
@@ -7,10 +8,11 @@ export const createProduct = (input_product) => {
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(input_product),
+    headers: {"Authorization": token},
   });
 };
 
-let token = cookie.load('token');
+
 
 export const fetchAllProducts = () => {
   return $.ajax({
@@ -30,6 +32,7 @@ export const fetchOneProduct = (name) => {
     url: `http://localhost:3000/api/products/${name}`,
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
+    headers: {"Authorization": token},
 
   });
 };

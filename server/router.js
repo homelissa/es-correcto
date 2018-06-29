@@ -33,7 +33,8 @@ module.exports = function(app) {
   // app.post('/api/products/:name/users/:userId/plans', PlanController.addPlan);
   app.get('/api/plans', PlanController.getPlans);
   app.get('/api/plans/:planId', PlanController.getPlan);
-  app.patch('/api/plans/:planId', PlanController.getPlan);
+  app.patch('/api/plans/:planId', PlanController.editPlan);
+  app.delete('/api/plans/:planId', PlanController.deletePlan);
 
   apiRoutes.get('/users', UtilController.getUsers);
 };

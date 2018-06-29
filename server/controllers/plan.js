@@ -27,11 +27,7 @@ exports.getPlan = function(req,res,next) {
 
 
 exports.addPlan = function(req,res,next) {
-  console.log("we hit add plan");
-  console.log(req.headers.authorization);
   let token = req.headers.authorization;
-  console.log(JSON.stringify(token));
-  console.log(jwtDecode(JSON.stringify(token)));
   const cost = req.body.cost;
   const paymentFrequency = req.body.paymentFrequency;
   const contractLength = req.body.contractLength;
@@ -56,7 +52,7 @@ exports.addPlan = function(req,res,next) {
     paymentFrequency: paymentFrequency,
     contractLength: contractLength,
     enrollmentDate: enrollmentDate,
-    userId: jwtDecode(JSON.stringify(token)),
+    userId: userId,
   });
 
   doc.save(function(err,doc) {
@@ -69,39 +65,24 @@ exports.addPlan = function(req,res,next) {
 
 
 exports.editPlan = function(req,res,next) {
-  const cost = req.body.cost;
-  const paymentFrequency = req.body.paymentFrequency;
-  const contractLength = req.body.contractLength;
-  const _id = req.body._id;
-
-  if(!cost){
-    return res.status(422).send({ error: 'You must enter a cost.'});
-  }
-
-  if (!paymentFrequency) {
-    return res.status(422).send({ error: 'You must enter a payment frequency.'});
-  }
-
-  if (!contractLength) {
-    return res.status(422).send({ error: 'You must enter a contract length.' });
-  }
-
-  Plan.findById((_id), function(err,toEditPlan) {
-    if (err) {return next(err);
-    }
-    toEditPlan.update({
-      cost: cost,
-      paymentFrequency: paymentFrequency,
-      contractLength: contractLength,
-      _id: _id
-    });
-    res.send(toEditPlan);
-  });
+  // console.log("hits edit plan");
+  // let result = Plan.findById(req.params.planId);
+  // let updated = req.body;
+  // console.log(updated);
+  // // result.update(function(err,updated) {
+  // //   if(err) { return next(err);}
+  // //   res.send(result);
+  // // });
+  // result.update(updated)
+  // .then(res.send(result));
 
 };
 
 
 
 exports.deletePlan = function(req,res,next) {
+  Plan.remove({_id: req.params.planId});
+  res.status(200).json({
 
+  });
 };
