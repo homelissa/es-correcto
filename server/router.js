@@ -27,7 +27,7 @@ module.exports = function(app) {
   productRoutes.get('/', ProductController.getProducts);
   productRoutes.get("/:name", ProductController.getProduct);
   productRoutes.get("/user", ProductController.getUserProducts);
-  productRoutes.post("/:name/add", ProductController.addUser);
+  // productRoutes.post("/:name/add", ProductController.addUser);
 
   app.post('/api/plans', PlanController.addPlan);
   // app.post('/api/products/:name/users/:userId/plans', PlanController.addPlan);

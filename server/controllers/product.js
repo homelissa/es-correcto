@@ -46,17 +46,25 @@ exports.getUserProducts = function(req, res, next) {
 
 };
 
-
-
-exports.addUser = function(req, res, next){
-
-  const user = User.model.findById(req.user.id);
-  const product = Product.findOne({name: req.params.name});
-  var doc = product.users.insert(user);
-  // console.log(doc);
-  res.send(doc);
-
+exports.subscribeToProduct = function(req, res, next){
+  console.log("subscribeToProduct");
+  // const userId1 = req.params.userId;
+  let token = req.headers.authorization;
+  const userId = jwtDecode(JSON.stringify(token))._id;
+  const user = User.findById(userId);
 };
+
+
+
+// exports.userSubscribedToProduct= function(req, res, next){
+//
+//   const user = User.model.findById(req.user.id);
+//   const product = Product.findOne({name: req.params.name});
+//   var doc = product.users.insert(user);
+//   // console.log(doc);
+//   res.send(doc);
+//
+// };
 
 
 
