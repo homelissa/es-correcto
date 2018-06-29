@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  console.log("mdp");
+  // console.log("mdp");
   return {
     // loadUserFromToken: () => {
     //   return cookie.load('token'),
