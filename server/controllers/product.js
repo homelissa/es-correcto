@@ -33,18 +33,18 @@ exports.getProduct = function(req, res, next) {
 };
 
 
-  exports.getUserProducts = function(req, res, next) {
-    console.log("getUserProducts");
-    // const userId1 = req.params.userId;
-    let token = req.headers.authorization;
-    const userId = jwtDecode(JSON.stringify(token))._id;
-    const user = User.findById(userId);
+exports.getUserProducts = function(req, res, next) {
+  console.log("getUserProducts");
+  // const userId1 = req.params.userId;
+  let token = req.headers.authorization;
+  const userId = jwtDecode(JSON.stringify(token))._id;
+  const user = User.findById(userId);
 
-      user.exec(function(err, doc) {
-       res.send(doc.products);
-     });
+    user.exec(function(err, doc) {
+     res.send(doc.products);
+   });
 
-    };
+};
 
 
 
