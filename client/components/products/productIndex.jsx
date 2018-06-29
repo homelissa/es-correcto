@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 
 class ProductIndex extends React.Component {
   componentDidMount(){
-    this.props.fetchAllProducts();
+    this.props.fetchProducts();
   }
 
   render(){
