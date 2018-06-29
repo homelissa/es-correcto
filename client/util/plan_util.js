@@ -33,12 +33,26 @@ export const fetchOnePlan = (plan) => {
   });
 };
 
+export const updatePlan = (plan) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `http://localhost:3000/api/plans/${plan.id}`,
+    dataType: 'html',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(plan),
+    headers: { 
+      "Authorization": token,
+      "Access-Control-Allow-Headers": true
+     },
+  });
+};
+
 export const deletePlan = id => {
   return $.ajax({
-    method: 'DELETE',
+    type: 'DELETE',
     url: `http://localhost:3000/api/plans/`,
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
-    headers: { "Authorization": token },
+    headers: { "Authorization": token  }
   });
 };

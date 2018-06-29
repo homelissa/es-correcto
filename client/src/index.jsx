@@ -7,7 +7,7 @@ import cookie from 'react-cookies';
 
 // import { register, login } from '../util/session_api_utils';
 // import { fetchOneProduct,fetchAllProducts,createProduct } from '../util/product_util';
-import { requestOnePlan,requestAllPlans,createPlan, removePlan } from '../actions/plan_action';
+import { requestOnePlan,requestAllPlans,createPlan, updatePlan, removePlan } from '../actions/plan_action';
 import rootReducer from '../reducers/root_reducer';
 import userReducer from '../reducers//user_reducer';
 import productReducer from '../reducers//product_reducer';
@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.requestAllPlans = requestAllPlans;
   window.createPlan = createPlan;
   window.removePlan = removePlan;
+  window.updatePlan = updatePlan;
 
 
   window.getState = store.getState;

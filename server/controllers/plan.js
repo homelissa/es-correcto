@@ -83,8 +83,13 @@ exports.editPlan = function(req,res,next) {
 };
 
 exports.deletePlan = function(req,res,next) {
+  console.log("hit delete")
   Plan.remove({ _id: req.params.planId})
   .then(plan => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE,PATCH");
+    res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
     res.json(plan);
   })
   .catch(err => res.status(404).json(err));

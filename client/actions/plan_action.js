@@ -13,9 +13,13 @@ export const requestAllPlans = () => dispatch => {
     .then(response => dispatch({ type: RECEIVE_ALL_PLANS, payload: response }));
 };
 
-
 export const createPlan = (plan) => dispatch => {
   return PlanAPIUtil.createPlan(plan)
+    .then(response => dispatch({ type: RECEIVE_ONE_PLAN, payload: response }));
+};
+
+export const updatePlan = (plan) => dispatch => {
+  return PlanAPIUtil.updatePlan(plan)
     .then(response => dispatch({ type: RECEIVE_ONE_PLAN, payload: response }));
 };
 
