@@ -65,24 +65,27 @@ exports.addPlan = function(req,res,next) {
 
 
 exports.editPlan = function(req,res,next) {
-  // console.log("hits edit plan");
-  // let result = Plan.findById(req.params.planId);
-  // let updated = req.body;
-  // console.log(updated);
-  // // result.update(function(err,updated) {
-  // //   if(err) { return next(err);}
-  // //   res.send(result);
-  // // });
-  // result.update(updated)
-  // .then(res.send(result));
+  let updatedInfo={};
+  updatedInfo._id = req.params.planId;
 
+  if (req.body.cost) updatedInfo.cost = req.body.cost;
+  if (req.body.paymentFrequency) updatedInfo.paymentFrequency = req.body.paymentFrequency;
+  if (req.body.enrollmentDate) updatedInfo.enrollmentDate = req.body.enrollmentDate;
+  if (req.body.contractLength) updatedInfo.contractLength = req.body.contractLength;
+  Plan.findOneAndUpdate(
+    {_id: req.params.planId},
+    { $set: updatedInfo },
+    { new: true }
+  ).then(newPlan => res.json(newPlan)).catch(err =>
+    res.status(404).json({ plans:
+            "You cannot edit this plan" })
+  );
 };
 
-
-
 exports.deletePlan = function(req,res,next) {
-  Plan.remove({_id: req.params.planId});
-  res.status(200).json({
-
-  });
+  Plan.remove({ _id: req.params.planId})
+  .then(plan => {
+    res.json(plan);
+  })
+  .catch(err => res.status(404).json(err));
 };
