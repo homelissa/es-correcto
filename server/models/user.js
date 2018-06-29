@@ -25,7 +25,20 @@ const UserSchema = new Schema({
   },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
-  notifications: [ Notification.schema ]
+  notifications: [ Notification.schema ],
+  products: [
+    {
+      name: { type: String},
+      plans: [
+        {
+          planId: {type: String},
+          cost: {type: String},
+          paymentFrequency: {type: String},
+          contractLength: {type: Number}
+        }
+      ]
+    }
+  ]
 },
 {
   timestamps: true
