@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createPlan = createPlan;
   window.removePlan = removePlan;
   window.updatePlan = updatePlan;
-
+  window.fetchOneProduct = fetchOneProduct;
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
