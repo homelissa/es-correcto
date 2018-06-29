@@ -2,6 +2,8 @@
 
 var Product = require('../models/product.js');
 var User = require('../models/user.js');
+var mongoose = require('mongoose');
+var ObjectId = mongoose.Types.ObjectId;
 
 
 exports.getProducts = function(req, res, next) {
@@ -20,9 +22,7 @@ exports.getProducts = function(req, res, next) {
 
 exports.getProduct = function(req, res, next) {
   const product = Product.findOne({name: req.params.name}, function(err, doc){
-    console.log(doc);
     if (!doc) {
-      console.log("product doesnt exist");
       return res.status(422).send({ error: 'This route does not exist'});
     } else{
       doc.users = null;
@@ -31,17 +31,61 @@ exports.getProduct = function(req, res, next) {
   });
 };
 
+function productContainsUsers(product, userId) {
+  let found = false;
+  product.users.forEach(user => {
+    console.log(String(user._id));
+    if (String(user._id) == userId) {
+      found = true;
+    }
+  });
+  return found;
+}
+
 
 exports.getUserProducts = function(req, res, next) {
-  const userId = req.params.userId;
-  const user = User.model.findById(userId);
-  const products = Product.find({'users._id': userId}, function(err, doc) {
 
-    doc.forEach(subdoc => {
-      subdoc.users = null;
+  const userId1 = req.params.userId;
+  const query = Product.find({});
+  // const user = User.model.findById(userId, (err, user)=> {
+  //     console.log("This should be a user")
+  //     console.log(user._id)
+  // });
+  query.exec(function(err, products){
+
+    const matchedProducts = products.filter((product) =>{
+      // if(product.users[0]._id == userId1){
+      //   return product;
+      // }
+
+      if (productContainsUsers(product, userId1) ){
+
+        return product;
+      }
+
     });
-    res.send(doc);
+
+
+
+    console.log(matchedProducts);
+    res.send(matchedProducts);
   });
+
+
+
+
+
+  // const products = Product.find({'users': {'_id': userId1}}, function(err, doc) {
+// const products = Product.find({ 'users' : {_id: userId1}}, function(err, doc) {
+//     console.log("helloaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+//
+//     console.log("----------------------------------------------");
+//     console.log(doc);
+//   //   doc.forEach(subdoc => {
+//   //     subdoc.users = null;
+//   //   });
+//   //   res.send(doc);
+//   });
 
 };
 
