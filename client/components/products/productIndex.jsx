@@ -9,28 +9,44 @@ class ProductIndex extends React.Component {
   render(){
     return (
       <div>
+        <ul>
+
+
+
         {this.props.products.map(product =>
-          <div>
-            <h4>
-              {product.name}
-            </h4>
-          <div>
-            {product.plans.map(plan =>
-              <ul>
-                <li>
-                  Cost: {plan.cost}
+          <li>
+            <div>
+              <h4>
+                {product.name}
+              </h4>
+            <div>
+              <ul id="index-list">
+                {product.plans.map(plan =>
+                  <li id="index-item">
+                  <ul>
+                    <li>
+                      Cost: {plan.cost}
+                    </li>
+                    <li>
+                      Payment Frequency: {plan.paymentFrequency}
+                    </li>
+                    <li>
+                      Contract Length: {plan.contractLength}
+                    </li>
+
+                    <img src={`${product.img_url}`} alt="Italian Trulli" />
+                  </ul>
                 </li>
-                <li>
-                  Payment Frequency: {plan.paymentFrequency}
-                </li>
-                <li>
-                  Contract Length: {plan.contractLength}
-                </li>
+                )}
               </ul>
-            )}
+            </div>
           </div>
-        </div>
+        </li>
         )}
+      </ul>
+
+
+
       </div>
     );
   }
