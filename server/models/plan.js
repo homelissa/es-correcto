@@ -12,7 +12,13 @@ const PlanSchema = new Schema({
     contractLength: {
       type: Number
     },
-    // enrollmentDate: {type: Date}
+    enrollmentDate: {type: Date},
+    // userId: {
+    //   type: String
+    // },
+    // productId: {
+    //   type: String
+    // }
 });
 module.exports.schema = PlanSchema;
 module.exports.model = mongoose.model('Plan', PlanSchema);

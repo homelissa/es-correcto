@@ -1,3 +1,5 @@
+import cookie from 'react-cookies';
+
 export const createProduct = (input_product) => {
   return $.ajax({
     method: 'POST',
@@ -8,6 +10,7 @@ export const createProduct = (input_product) => {
   });
 };
 
+let token = cookie.load('token');
 
 export const fetchAllProducts = () => {
   return $.ajax({
@@ -15,6 +18,7 @@ export const fetchAllProducts = () => {
     url: 'http://localhost:3000/api/products',
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
+    headers: {"Authorization": token},
   });
 
 };

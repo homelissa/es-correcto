@@ -1,4 +1,6 @@
-"use strict";
+
+const passport = require("passport");
+const ExtractJwt = require("passport-jwt").ExtractJwt;
 
 let PlanObj = require('../models/plan.js');
 const Plan = PlanObj.model;
@@ -27,9 +29,13 @@ exports.getPlan = function(req,res,next) {
 exports.addPlan = function(req,res,next) {
   console.log("we hit add plan");
   console.log(req.body);
+  let token = ExtractJwt.fromAuthHeaderWithScheme("jwt");
+  console.log("token",token);
   const cost = req.body.cost;
   const paymentFrequency = req.body.paymentFrequency;
   const contractLength = req.body.contractLength;
+  const enrollmentDate = req.body.enrollmentDate;
+  // const userId = req.params._id;
 
   if(!cost){
     return res.status(422).send({ error: 'You must enter a cost.'});
@@ -48,7 +54,10 @@ exports.addPlan = function(req,res,next) {
     cost: cost,
     paymentFrequency: paymentFrequency,
     contractLength: contractLength,
+    enrollmentDate: enrollmentDate,
+
   });
+
   doc.save(function(err,doc) {
     if (err) { return next(err); }
     res.send(doc);
@@ -59,6 +68,34 @@ exports.addPlan = function(req,res,next) {
 
 
 exports.editPlan = function(req,res,next) {
+  const cost = req.body.cost;
+  const paymentFrequency = req.body.paymentFrequency;
+  const contractLength = req.body.contractLength;
+  const _id = req.body._id;
+
+  if(!cost){
+    return res.status(422).send({ error: 'You must enter a cost.'});
+  }
+
+  if (!paymentFrequency) {
+    return res.status(422).send({ error: 'You must enter a payment frequency.'});
+  }
+
+  if (!contractLength) {
+    return res.status(422).send({ error: 'You must enter a contract length.' });
+  }
+
+  Plan.findById((_id), function(err,toEditPlan) {
+    if (err) {return next(err);
+    }
+    toEditPlan.update({
+      cost: cost,
+      paymentFrequency: paymentFrequency,
+      contractLength: contractLength,
+      _id: _id
+    });
+    res.send(toEditPlan);
+  });
 
 };
 

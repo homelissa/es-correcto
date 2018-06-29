@@ -30,8 +30,10 @@ module.exports = function(app) {
   productRoutes.post("/:name/add", ProductController.addUser);
 
   app.post('/api/plans', PlanController.addPlan);
+  // app.post('/api/products/:name/users/:userId/plans', PlanController.addPlan);
   app.get('/api/plans', PlanController.getPlans);
   app.get('/api/plans/:planId', PlanController.getPlan);
+  app.patch('/api/plans/:planId', PlanController.getPlan);
 
   apiRoutes.get('/users', UtilController.getUsers);
 };

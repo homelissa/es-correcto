@@ -6,6 +6,8 @@ var User = require('../models/user.js');
 
 exports.getProducts = function(req, res, next) {
   const query = Product.find({});
+  // console.log("header",req.headers.authorization);
+  // console.log("header",req.headers);
 
   query.exec(function(err, products){
     // products.forEach(product => {
