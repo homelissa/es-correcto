@@ -1,6 +1,4 @@
 
-const passport = require("passport");
-const ExtractJwt = require("passport-jwt").ExtractJwt;
 
 let PlanObj = require('../models/plan.js');
 const Plan = PlanObj.model;
@@ -25,17 +23,25 @@ exports.getPlan = function(req,res,next) {
 };
 
 
+function parseToken(token){
+  let actualToken = token.split('.')[1];
+  let userInfo = actualToken.replace('-', '+').replace('_', '/');
+  return JSON.parse(window.atob(userInfo));
+}
+
+
 
 exports.addPlan = function(req,res,next) {
   console.log("we hit add plan");
   console.log(req.body);
-  let token = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-  console.log("token",token);
+  let token = req.headers.authorization;
+  let currentUser = parseToken(token);
+
   const cost = req.body.cost;
   const paymentFrequency = req.body.paymentFrequency;
   const contractLength = req.body.contractLength;
   const enrollmentDate = req.body.enrollmentDate;
-  // const userId = req.params._id;
+  const userId = currentUser._id;
 
   if(!cost){
     return res.status(422).send({ error: 'You must enter a cost.'});
@@ -55,7 +61,7 @@ exports.addPlan = function(req,res,next) {
     paymentFrequency: paymentFrequency,
     contractLength: contractLength,
     enrollmentDate: enrollmentDate,
-
+    userId: userId,
   });
 
   doc.save(function(err,doc) {
@@ -102,5 +108,5 @@ exports.editPlan = function(req,res,next) {
 
 
 exports.deletePlan = function(req,res,next) {
-
+  
 };
