@@ -35,6 +35,7 @@ exports.addPlan = function(req,res,next) {
   const contractLength = req.body.contractLength;
   const enrollmentDate = req.body.enrollmentDate;
   const userId = jwtDecode(JSON.stringify(token))._id;
+  const productId = req.body.productId;
 
   if(!cost){
     return res.status(422).send({ error: 'You must enter a cost.'});
@@ -55,6 +56,7 @@ exports.addPlan = function(req,res,next) {
     contractLength: contractLength,
     enrollmentDate: enrollmentDate,
     userId: userId,
+    productId: productId,
   });
 
   doc.save(function(err,doc) {

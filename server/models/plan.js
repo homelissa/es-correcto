@@ -16,9 +16,9 @@ const PlanSchema = new Schema({
     userId: {
       type: String
     },
-    // productId: {
-    //   type: String
-    // }
+    productId: {
+      type: String
+    }
 });
 module.exports.schema = PlanSchema;
 module.exports.model = mongoose.model('Plan', PlanSchema);
