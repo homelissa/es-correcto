@@ -7,6 +7,7 @@ var User = UserObj.model;
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var jwtDecode = require("jwt-decode");
+let Plan = require('./plan.js');
 
 exports.getProducts = function(req, res, next) {
   const query = Product.find({});
@@ -60,9 +61,8 @@ exports.addUserProducts = function(req,res,next) {
   console.log("in add user products");
   let token = req.headers.authorization;
   const name = req.body.name;
-  let img_url = req.body.img_url;
+  let img_url = req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png"
   const userId = jwtDecode(JSON.stringify(token))._id;
-
   if(!name){
     return res.status(422).send({ error: 'You must enter a product name.'});
   }
@@ -71,9 +71,6 @@ exports.addUserProducts = function(req,res,next) {
     return res.status(422).send({ error: 'Plz sign in before you add a product'});
   }
 
-  if(!img_url){
-    img_url = "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png";
-  }
 
   let doc = new Product ({
     name: name,

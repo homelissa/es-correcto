@@ -138,3 +138,28 @@
 .logout-button {
   cursor: pointer;
 }
+
+.prodidximg{
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.prodidxouter{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.prodidxouterli{
+  /* background: red; */
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  color: #555;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+  letter-spacing: -.3px;
+  line-height: 23px;
+  word-spacing: 1.3px;
+}

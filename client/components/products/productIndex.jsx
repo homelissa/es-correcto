@@ -8,13 +8,13 @@ class ProductIndex extends React.Component {
 
   render(){
     return (
-      <div>
+      <div className="prodidxouter">
         <ul>
 
 
 
         {this.props.products.map(product =>
-          <li>
+          <li className = "prodidxouterli">
             <Link to={`add-plan/${product._id}`}>
               <div>
                 <h4>
@@ -35,7 +35,7 @@ class ProductIndex extends React.Component {
                         Contract Length: {plan.contractLength}
                       </li>
 
-                      <img src={`${product.img_url}`} alt="Italian Trulli" />
+                      <img className = "prodidximg" src={`${product.img_url}`} alt="Italian Trulli" />
                     </ul>
                   </li>
                   )}
