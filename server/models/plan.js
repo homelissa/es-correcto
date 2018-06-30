@@ -7,7 +7,7 @@ const PlanSchema = new Schema({
       type: Number
     },
     paymentFrequency: {
-      type: String
+      type: Number
     },
     contractLength: {
       type: Number

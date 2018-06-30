@@ -20,6 +20,7 @@ class ProductIndex extends React.Component {
                 <h4>
                   {product.name}
                 </h4>
+                <img className = "prodidximg" src={product.img_url} alt="Italian Trulli" />
               <div>
                 <ul id="index-list">
                   {product.plans.map(plan =>
@@ -35,7 +36,7 @@ class ProductIndex extends React.Component {
                         Contract Length: {plan.contractLength}
                       </li>
 
-                      <img className = "prodidximg" src={`${product.img_url}`} alt="Italian Trulli" />
+
                     </ul>
                   </li>
                   )}
