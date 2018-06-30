@@ -43,7 +43,6 @@ exports.getUserProducts = function(req, res, next) {
     user.exec(function(err, doc) {
      res.send(doc.products);
    });
-
 };
 
 exports.subscribeToProduct = function(req, res, next){

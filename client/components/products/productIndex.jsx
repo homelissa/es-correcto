@@ -15,32 +15,34 @@ class ProductIndex extends React.Component {
 
         {this.props.products.map(product =>
           <li>
-            <div>
-              <h4>
-                {product.name}
-              </h4>
-            <div>
-              <ul id="index-list">
-                {product.plans.map(plan =>
-                  <li id="index-item">
-                  <ul>
-                    <li>
-                      Cost: {plan.cost}
-                    </li>
-                    <li>
-                      Payment Frequency: {plan.paymentFrequency}
-                    </li>
-                    <li>
-                      Contract Length: {plan.contractLength}
-                    </li>
+            <Link to={`add-plan/${product._id}`}>
+              <div>
+                <h4>
+                  {product.name}
+                </h4>
+              <div>
+                <ul id="index-list">
+                  {product.plans.map(plan =>
+                    <li id="index-item">
+                    <ul>
+                      <li>
+                        Cost: {plan.cost}
+                      </li>
+                      <li>
+                        Payment Frequency: {plan.paymentFrequency}
+                      </li>
+                      <li>
+                        Contract Length: {plan.contractLength}
+                      </li>
 
-                    <img src={`${product.img_url}`} alt="Italian Trulli" />
-                  </ul>
-                </li>
-                )}
-              </ul>
+                      <img src={`${product.img_url}`} alt="Italian Trulli" />
+                    </ul>
+                  </li>
+                  )}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Link>
         </li>
         )}
       </ul>
