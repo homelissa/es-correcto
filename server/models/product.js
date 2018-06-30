@@ -7,10 +7,11 @@ const ProductSchema = new Schema({
   name:{type: String},
   img_url: { type: String },
   userId: { type: String },
-  plans:[ Plan.schema ]
+  // plans:[ Plan.schema ]
   // users: [ User.schema ]
   // plans:[ {type: Plan} ],
   // users: [ {type: User}]
 });
 
 module.exports = mongoose.model("Product", ProductSchema);
+module.exports.model = mongoose.model("Product", ProductSchema);

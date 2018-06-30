@@ -7,7 +7,7 @@ const UserSchema = new Schema({
   email:{
     type: String,
     lowercase: true,
-    unique: true,
+    // unique: true,
     required: true
   },
   profile: {
@@ -26,19 +26,19 @@ const UserSchema = new Schema({
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },
   notifications: [ Notification.schema ],
-  products: [
-    {
-      name: { type: String},
-      plans: [
-        {
-          planId: {type: String},
-          cost: {type: String},
-          paymentFrequency: {type: String},
-          contractLength: {type: Number}
-        }
-      ]
-    }
-  ]
+  // products: [
+  //   {
+  //     name: { type: String},
+  //     plans: [
+  //       {
+  //         planId: {type: String},
+  //         cost: {type: String},
+  //         paymentFrequency: {type: String},
+  //         contractLength: {type: Number}
+  //       }
+  //     ]
+  //   }
+  // ]
 },
 {
   timestamps: true

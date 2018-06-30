@@ -1,6 +1,7 @@
 "use strict";
 
 var Product = require('../models/product.js');
+var ProdObj = Product.model;
 var UserObj = require('../models/user.js');
 var User = UserObj.model;
 var mongoose = require('mongoose');
@@ -53,13 +54,13 @@ exports.subscribeToProduct = function(req, res, next){
 };
 
 
-let ProdObj = Product.model;
+
 
 exports.addUserProducts = function(req,res,next) {
-  console.log("in add user products")
+  console.log("in add user products");
   let token = req.headers.authorization;
   const name = req.body.name;
-  const img_url = req.body.img_url;
+  let img_url = req.body.img_url;
   const userId = jwtDecode(JSON.stringify(token))._id;
 
   if(!name){
@@ -74,7 +75,7 @@ exports.addUserProducts = function(req,res,next) {
     img_url = "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png";
   }
 
-  let doc = new ProdObj ({
+  let doc = new Product ({
     name: name,
     img_url: img_url,
     userId: userId
