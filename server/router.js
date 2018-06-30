@@ -25,8 +25,10 @@ module.exports = function(app) {
   apiRoutes.use('/products', productRoutes);
 
   productRoutes.get('/', ProductController.getProducts);
-  productRoutes.get("/:name", ProductController.getProduct);
   productRoutes.get("/user", ProductController.getUserProducts);
+  productRoutes.get("/:name", ProductController.getProduct);
+  productRoutes.post("/", ProductController.addUserProducts);
+
   // productRoutes.post("/:name/add", ProductController.addUser);
 
   app.post('/api/plans', PlanController.addPlan);

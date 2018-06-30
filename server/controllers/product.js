@@ -54,6 +54,38 @@ exports.subscribeToProduct = function(req, res, next){
 };
 
 
+let ProdObj = Product.model;
+
+exports.addUserProducts = function(req,res,next) {
+  let token = req.headers.authorization;
+  const name = req.body.name;
+  const img_url = req.body.img_url;
+  const userId = jwtDecode(JSON.stringify(token))._id;
+
+  if(!name){
+    return res.status(422).send({ error: 'You must enter a product name.'});
+  }
+
+  if(!userId){
+    return res.status(422).send({ error: 'Plz sign in before you add a product'});
+  }
+
+  if(!img_url){
+    img_url = "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png";
+  }
+
+  let doc = new ProdObj ({
+    name: name,
+    img_url: img_url,
+    userId: userId
+  });
+  doc.save(function(err,doc){
+    if(err) { return next(err); }
+    res.send(doc);
+  });
+
+};
+
 
 // exports.userSubscribedToProduct= function(req, res, next){
 //
