@@ -5,6 +5,7 @@ import SignupFormContainer from './session/registerform_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import ProductIndexContainer from './products/productIndex_container';
 import UserProductIndexContainer from './products/user_productIndex_container';
+import PlanForm from "./plans/plan_form";
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import cookie from 'react-cookies';
@@ -25,6 +26,7 @@ const App = () => {
       <AuthRoute exact path="/signup" component={SignupFormContainer}/>
       <Switch>
         <ProtectedRoute exact path="/products" component={ProductIndexContainer}/>
+        <ProtectedRoute path="/add-plan/:productId" component={PlanForm}/>
         <ProtectedRoute exact path="/" component={UserProductIndexContainer}/>
       </Switch>
 
