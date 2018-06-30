@@ -83,7 +83,10 @@ class UserProductIndex extends React.Component {
                 {userProduct.plans.map(plan =>
                   <ul>
                     <li>
+                      <div>
                       Cost: {plan.cost}
+                        <Link to={`/userproducts/${userProduct._id}/plans/${plan._id}`}>Edit Plan</Link> | <button onClick={() => this.props.removePlan(plan._id)}>Delete Plan</button>
+                      </div>
                     </li>
                     <li>
                       Payment Frequency: {plan.paymentFrequency}

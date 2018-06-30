@@ -5,6 +5,7 @@ class EditPlanForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(this.props)
     this.state = this.props.plan;
     console.log(this.state)
     
@@ -20,7 +21,7 @@ class EditPlanForm extends React.Component {
 
   format(input) {
     let date = new Date(input);
-    let d = date.getDate();
+    let d = date.getDate() + 1;
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
     return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);

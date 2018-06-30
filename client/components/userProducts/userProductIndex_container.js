@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import UserProductIndex from './userProductIndex';
 import { withRouter } from 'react-router-dom';
 import { requestUserProducts } from '../../actions/product_action';
-import { requestAllPlans } from '../../actions/plan_action';
+import { requestAllPlans, removePlan } from '../../actions/plan_action';
 import cookie from 'react-cookies';
 
 const mapStateToProps = state => {
@@ -37,7 +37,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUserProducts: () => dispatch(requestUserProducts()),
-    requestAllPlans: () => dispatch(requestAllPlans())
+    requestAllPlans: () => dispatch(requestAllPlans()),
+    removePlan: id => dispatch(removePlan(id))
   };
 };
 
