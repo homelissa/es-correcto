@@ -26,11 +26,11 @@ const App = () => {
       <DashboardContainer />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/userproducts/:productId/plans/new" component={CreatePlanContainer} />
-      <Route exact path="/userproducts/:productId/plans/:planId" component={EditPlanFormContainer} />
       <Switch>
         <ProtectedRoute exact path="/products" component={ProductIndexContainer}/>
         <ProtectedRoute exact path="/userproducts" component={UserProductIndexContainer}/>
+        <ProtectedRoute exact path="/userproducts/:productId/plans/new" component={CreatePlanContainer} />
+        <ProtectedRoute exact path="/userproducts/:productId/plans/:planId" component={EditPlanFormContainer} />
         <ProtectedRoute exact path ="/userreports" component = {UserReportContainer}/>
       </Switch>
 

@@ -18,13 +18,28 @@ class EditPlanForm extends React.Component {
     // };
   }
 
+  format(input) {
+    let date = new Date(input);
+    let d = date.getDate();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+    return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+  }
+
   componentDidMount() {
     this.props.requestOnePlan(this.props.match.params.planId);
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.plan !== newProps.plan) {
-      this.setState(newProps.plan);
+      this.setState({
+        _id: newProps.plan._id,
+        cost: newProps.plan.cost,
+        paymentFrequency: newProps.plan.paymentFrequency,
+        contractLength: newProps.plan.contractLength,
+        enrollmentDate: this.format(new Date(newProps.plan.enrollmentDate)),
+        productId: newProps.productId
+      });
     }
   }
   

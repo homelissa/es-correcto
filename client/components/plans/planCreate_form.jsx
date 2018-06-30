@@ -23,7 +23,7 @@ class CreatePlanForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state)
-    this.props.action(this.state) //.then((action) => this.props.history.push(`/userproducts`));
+    this.props.action(this.state).then((action) => this.props.history.push(`/userproducts`));
   }
 
   render() {
