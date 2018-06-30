@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
             </Link>
             <div className = "right-side-links">
             <Link to='/' className="home-link"><h3>Home</h3></Link>
-            <Link to='/' className="subscriptions-link"><h3>Manage Subscriptions</h3></Link>
+            <Link to='/userproducts' className="subscriptions-link"><h3>Manage Subscriptions</h3></Link>
             <Link to='/products' className="product-link"><h3>Products</h3></Link>
             <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
             </div>

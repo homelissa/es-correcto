@@ -4,12 +4,20 @@ import { withRouter, Link } from 'react-router-dom';
 class UserProductIndex extends React.Component {
   componentDidMount() {
     this.props.fetchUserProducts();
+    this.props.requestAllPlans();
   }
 
   render() {
+    let products = this.props.userProducts;
+
+    let productWithPlans = products.map((product)=> {
+      let plans = [];
+      product.plans = this.props.userPlans.filter(
+        plan => plan.productId === product._id);
+    });
     return (
       <div>
-        {this.props.userProducts.map(userProduct =>
+        {productWithPlans.map(userProduct =>
           <div>
             <h4>
               {userProduct.name}

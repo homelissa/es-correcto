@@ -27,7 +27,7 @@ const App = () => {
       <Switch>
         <ProtectedRoute exact path="/products" component={ProductIndexContainer}/>
         <ProtectedRoute path="/add-plan/:productId" component={PlanForm}/>
-        <ProtectedRoute exact path="/" component={UserProductIndexContainer}/>
+        <ProtectedRoute exact path="/userproducts" component={UserProductIndexContainer}/>
       </Switch>
 
     </div>
