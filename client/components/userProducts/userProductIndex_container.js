@@ -4,10 +4,20 @@ import UserProductIndex from './userproductIndex';
 import { withRouter } from 'react-router-dom';
 import { requestUserProducts } from '../../actions/product_action';
 import { requestAllPlans } from '../../actions/plan_action';
+import cookie from 'react-cookies';
 
 const mapStateToProps = state => {
   let plans = Object.values(state.plans);
-  let currentUser = state.user.profile.user;
+  console.log("state",state);
+  let token = cookie.load('token');
+  let currentUser;
+  if (token) {
+    let actualToken = token.split('.')[1];
+    let userInfo = actualToken.replace('-', '+').replace('_', '/');
+    currentUser = JSON.parse(window.atob(userInfo));
+  }
+  
+  console.log("currentUser",currentUser);
   let userPlans = [];
   if (plans){
     userPlans = plans.filter(plan => plan.userId === currentUser._id);
