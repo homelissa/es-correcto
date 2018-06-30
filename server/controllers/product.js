@@ -32,7 +32,6 @@ exports.getProduct = function(req, res, next) {
   });
 };
 
-
 exports.getUserProducts = function(req, res, next) {
   console.log("getUserProducts");
   // const userId1 = req.params.userId;

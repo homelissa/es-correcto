@@ -1,4 +1,4 @@
-import { RECEIVE_ONE_PRODUCT, RECEIVE_ALL_PRODUCTS } from '../actions/product_action';
+import { RECEIVE_ONE_PRODUCT, RECEIVE_ALL_PRODUCTS, RECEIVE_USER_PRODUCTS } from '../actions/product_action';
 import merge from 'lodash/merge';
 
 const productReducer = (state={},action) => {

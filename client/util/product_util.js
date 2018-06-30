@@ -12,8 +12,6 @@ export const createProduct = (input_product) => {
   });
 };
 
-
-
 export const fetchAllProducts = () => {
   return $.ajax({
     method: 'GET',
@@ -25,7 +23,6 @@ export const fetchAllProducts = () => {
 
 };
 
-
 export const fetchOneProduct = (name) => {
   return $.ajax({
     method: 'GET',
@@ -33,6 +30,15 @@ export const fetchOneProduct = (name) => {
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
     headers: {"Authorization": token},
+  });
+};
 
+export const fetchUserProducts = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'http://localhost:3000/api/products/user',
+    dataType: 'html',
+    contentType: "application/json; charset=utf-8",
+    headers: { "Authorization": token },
   });
 };
