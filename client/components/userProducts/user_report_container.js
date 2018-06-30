@@ -29,7 +29,7 @@ const mapStateToProps = state => {
     products: Object.values(state.userProducts),
     currentUser: currentUser,
     userPlans: userPlans,
-    type: "userProductIndex"
+    type: "userReport"
   };
 };
 
