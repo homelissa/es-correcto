@@ -39,11 +39,15 @@ exports.getUserProducts = function(req, res, next) {
   // const userId1 = req.params.userId;
   let token = req.headers.authorization;
   const userId = jwtDecode(JSON.stringify(token))._id;
-  const user = User.findById(userId);
-
-    user.exec(function(err, doc) {
-     res.send(doc.products);
-   });
+  let objuserId = ObjectId(userId);
+  const product = Product.find({userId: userId},function(err,doc){
+    if(!product) {
+      return res.status(422).send({ error: 'This product does not exist'});
+    } else{
+      res.send(doc);
+    }
+  });
+  
 };
 
 exports.subscribeToProduct = function(req, res, next){

@@ -4,7 +4,7 @@ import LoginFormContainer from './session/loginform_container';
 import SignupFormContainer from './session/registerform_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import ProductIndexContainer from './products/productIndex_container';
-import UserProductIndexContainer from './products/user_productIndex_container';
+import UserProductIndexContainer from './userProducts/userProductIndex_container';
 import PlanForm from "./plans/plan_form";
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';

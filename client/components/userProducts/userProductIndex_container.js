@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProductIndex from './productIndex';
+import UserProductIndex from './userproductIndex';
 import { withRouter } from 'react-router-dom';
 import { requestUserProducts } from '../../actions/product_action';
 import { requestAllPlans } from '../../actions/plan_action';
@@ -12,9 +12,11 @@ const mapStateToProps = state => {
   if (plans){
     userPlans = plans.filter(plan => plan.userId === currentUser._id);
   }
+  console.log("plans",plans);
+  console.log("userPlans",userPlans);
 
   return {
-    products: Object.values(state.products),
+    products: Object.values(state.userProducts),
     currentUser: currentUser,
     userPlans: userPlans
   };
@@ -28,4 +30,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProductIndex));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserProductIndex));

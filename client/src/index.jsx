@@ -10,7 +10,7 @@ import { fetchAllProducts, fetchUserProducts } from '../util/product_util';
 import { requestOnePlan,requestAllPlans,createPlan, updatePlan, removePlan } from '../actions/plan_action';
 import rootReducer from '../reducers/root_reducer';
 import { RECEIVE_CURRENT_USER,AUTH_USER,UNAUTH_USER,receiveCurrentUser,login,register,logout} from '../actions/session_action';
-import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestOneProduct,requestAllProducts,createProduct, createUserProduct} from '../actions/product_action';
+import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestUserProducts,requestOneProduct,requestAllProducts,createProduct, createUserProduct} from '../actions/product_action';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-
+  window.requestUserProducts = requestUserProducts;
   window.requestOneProduct = requestOneProduct;
   // window.fetchAllProducts = fetchAllProducts;
   // window.requestOneProduct = requestOneProduct;

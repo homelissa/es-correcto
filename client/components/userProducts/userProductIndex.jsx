@@ -5,16 +5,29 @@ class UserProductIndex extends React.Component {
   componentDidMount() {
     this.props.fetchUserProducts();
     this.props.requestAllPlans();
+    console.log("component did mount");
   }
 
   render() {
-    let products = this.props.userProducts;
+    let products = this.props.products;
+    console.log("products",products);
+    var productWithPlans;
+    if (products){
+      productWithPlans = products.map((product)=> {
+        let plans;
+        product.plans = this.props.userPlans.filter(
+          plan => plan.productId === product._id);
+        return product;  
+      });
+      // return productWithPlans;
+    }
+    console.log("productwithplans",productWithPlans);
 
-    let productWithPlans = products.map((product)=> {
-      let plans = [];
-      product.plans = this.props.userPlans.filter(
-        plan => plan.productId === product._id);
-    });
+    // if (!productWithPlans) {
+    //   return (
+    //     <div> loading</div>
+    //   );
+    // }
     return (
       <div>
         {productWithPlans.map(userProduct =>
@@ -41,7 +54,8 @@ class UserProductIndex extends React.Component {
         )}
       </div>
     );
+    }
   }
-}
+
 
 export default UserProductIndex;
