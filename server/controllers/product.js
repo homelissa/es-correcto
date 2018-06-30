@@ -56,6 +56,7 @@ exports.subscribeToProduct = function(req, res, next){
 let ProdObj = Product.model;
 
 exports.addUserProducts = function(req,res,next) {
+  console.log("in add user products")
   let token = req.headers.authorization;
   const name = req.body.name;
   const img_url = req.body.img_url;

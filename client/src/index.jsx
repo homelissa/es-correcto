@@ -10,7 +10,7 @@ import { fetchAllProducts, fetchUserProducts } from '../util/product_util';
 import { requestOnePlan,requestAllPlans,createPlan, updatePlan, removePlan } from '../actions/plan_action';
 import rootReducer from '../reducers/root_reducer';
 import { RECEIVE_CURRENT_USER,AUTH_USER,UNAUTH_USER,receiveCurrentUser,login,register,logout} from '../actions/session_action';
-import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestOneProduct,requestAllProducts,createProduct} from '../actions/product_action';
+import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestOneProduct,requestAllProducts,createProduct, createUserProduct} from '../actions/product_action';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -37,13 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
   window.requestAllProducts = requestAllProducts;
   window.createProduct = createProduct;
   window.fetchUserProducts = fetchUserProducts;
+  window.createUserProduct = createUserProduct;
 
   window.requestOnePlan = requestOnePlan;
   window.requestAllPlans = requestAllPlans;
   window.createPlan = createPlan;
   window.removePlan = removePlan;
   window.updatePlan = updatePlan;
-  window.fetchOneProduct = fetchOneProduct;
+  // window.fetchOneProduct = fetchOneProduct;
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;

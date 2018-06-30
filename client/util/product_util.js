@@ -42,3 +42,25 @@ export const fetchUserProducts = () => {
     headers: { "Authorization": token },
   });
 };
+
+export const createUserProduct = userProduct => {
+  return $.ajax({
+    method: 'POST',
+    url: 'http://localhost:3000/api/products',
+    dataType: 'html',
+    contentType: "application/json; charset=utf-8",
+    data: JSON.stringify(userProduct),
+    headers: { "Authorization": token },
+  });
+};
+
+// export const createProduct = (input_product) => {
+//   return $.ajax({
+//     method: 'POST',
+//     url: `http://localhost:3000/api/products/${input_product.name}`,
+//     dataType: 'html',
+//     contentType: "application/json; charset=utf-8",
+//     data: JSON.stringify(input_product),
+//     headers: { "Authorization": token },
+//   });
+// };
