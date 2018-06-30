@@ -1,33 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PlanForm from './plan_form';
-import { requestOnePlan, updatePlan } from '../../actions/plan_actions';
-
-class EditPlanForm extends React.Component {
-  componentDidMount() {
-    this.props.requestOnePlan(this.props.match.params.planId);
-  }
-
-  render() {
-    return (
-      <PlanForm
-        action={this.props.action}
-        formType={this.props.formType}
-        plan={this.props.plan} />
-    );
-  }
-}
+import EditPlanForm from './planEdit_form';
+import { requestOnePlan, updatePlan, requestAllPlans } from '../../actions/plan_action';
 
 const msp = (state, ownProps) => {
-  const defaultPlan = { cost: '', paymentFrequency: '', contractLength: '', enrollmentDate: '' };
-  const plan = state.plans[ownProps.match.params.planId] || defaultPlan;
-  const formType = 'Update Plan';
+  const formType = 'Update Plan'
+  const plan = state.plans[ownProps.match.params.planId]
 
-  return { plan, formType };
+  return { formType, plan };
 };
 
 const mdp = dispatch => ({
   requestOnePlan: id => dispatch(requestOnePlan(id)),
+  requestAllPlans: () => dispatch(requestAllPlans()),
   action: plan => dispatch(updatePlan(plan))
 });
 

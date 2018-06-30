@@ -3,8 +3,8 @@ export const RECEIVE_ALL_PLANS = 'RECEIVE_ALL_PLANS';
 export const RECEIVE_ONE_PLAN = 'RECEIVE_ONE_PLAN';
 export const REMOVE_PLAN = 'REMOVE_PLAN';
 
-export const requestOnePlan = (name) => dispatch => {
-  return PlanAPIUtil.fetchOnePlan(name)
+export const requestOnePlan = (id) => dispatch => {
+  return PlanAPIUtil.fetchOnePlan(id)
     .then(response => dispatch({ type: RECEIVE_ONE_PLAN, payload: response }));
 };
 

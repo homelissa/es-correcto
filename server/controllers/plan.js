@@ -14,7 +14,7 @@ exports.getPlans = function(req, res, next) {
 
 exports.getPlan = function(req,res,next) {
   let x = Plan.findById(req.params.planId);
-  console.log("params",x);
+  // console.log("params",x);
   const currentPlan = Plan.findById(req.params.planId, function(err,doc){
     if(!doc) {
       return res.status(422).send({error: 'This plan does not exist'});
