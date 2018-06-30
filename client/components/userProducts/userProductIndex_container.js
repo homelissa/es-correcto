@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserProductIndex from './userproductIndex';
+import UserProductIndex from './userProductIndex';
 import { withRouter } from 'react-router-dom';
 import { requestUserProducts } from '../../actions/product_action';
 import { requestAllPlans } from '../../actions/plan_action';
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
     let userInfo = actualToken.replace('-', '+').replace('_', '/');
     currentUser = JSON.parse(window.atob(userInfo));
   }
-  
+
   console.log("currentUser",currentUser);
   let userPlans = [];
   if (plans){
