@@ -103,7 +103,8 @@ class UserProductIndex extends React.Component {
       return (
         <div>
           <h3>Welcome {this.props.currentUser.firstName} {this.props.currentUser.lastName} These are the details of your subscriptions.</h3>
-          {productWithPlans.map(userProduct =>
+          <Link to="/addproducts">Add Product</Link>
+        {productWithPlans.map(userProduct =>
             <div>
               <h4>
                 {userProduct.name}

@@ -10,13 +10,14 @@ class ProductIndex extends React.Component {
     let presetProducts = this.props.products;
     return (
       <div className="prodidxouter">
+        <Link to="/addproducts">Add Product</Link>
         <ul>
 
 
 
         {presetProducts.map(product =>
           <li className = "prodidxouterli">
-            
+
             <Link to={`userproducts/${product._id}/plans/new`}>
               <div>
                 <h4>
