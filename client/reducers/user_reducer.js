@@ -5,7 +5,7 @@ const userReducer = (state={ profile: {}, error: '' },action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {...state, profile: action.currentUser }
+      return {...state, profile: JSON.parse(action.currentUser) }
       // return merge({},state,{user: action.currentUser});
     case UNAUTH_USER:
       return {...state, profile: {} }

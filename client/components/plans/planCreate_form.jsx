@@ -6,8 +6,8 @@ class CreatePlanForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     console.log(this.props)
-    this.state = { cost: '', 
-      paymentFrequency: '', 
+    this.state = { cost: '',
+      paymentFrequency: '',
       contractLength: '',
       enrollmentDate: '',
       productId: this.props.match.params.productId
@@ -24,6 +24,11 @@ class CreatePlanForm extends React.Component {
     e.preventDefault();
     console.log(this.state)
     this.props.action(this.state).then((action) => this.props.history.push(`/userproducts`));
+  }
+
+  handleCancel(e){
+    e.preventDefault();
+
   }
 
   render() {
@@ -78,7 +83,7 @@ class CreatePlanForm extends React.Component {
             </label>
             <br />
             <br />
-
+            <button onClick={this.handleCancel}>Cancel</button>
             <input type="submit" value='Create Plan' className="change-form-submit" />
           </form>
         </div>

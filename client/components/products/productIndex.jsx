@@ -7,7 +7,7 @@ class ProductIndex extends React.Component {
   }
 
   render(){
-    let presetProducts = this.props.products.filter(product => product.userId === "Preset");
+    let presetProducts = this.props.products;
     return (
       <div className="prodidxouter">
         <ul>
@@ -16,7 +16,8 @@ class ProductIndex extends React.Component {
 
         {presetProducts.map(product =>
           <li className = "prodidxouterli">
-            <Link to={`add-plan/${product._id}`}>
+            
+            <Link to={`userproducts/${product._id}/plans/new`}>
               <div>
                 <h4>
                   {product.name}

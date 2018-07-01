@@ -5,8 +5,14 @@ import { createPlan } from '../../actions/plan_action';
 
 const msp = (state, ownProps) => {
   const formType = 'Create Plan';
+  let product = state.products[ownProps.match.params.productId];
+  console.log("product",product);
 
-  return { formType };
+  return {
+    formType: formType,
+    product: product,
+    userId: state.user.profile.user._id
+  };
 };
 
 const mdp = dispatch => ({
