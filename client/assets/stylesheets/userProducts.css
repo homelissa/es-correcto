@@ -1,0 +1,123 @@
+.user-product-head {
+  margin-left: 15vw;
+  margin-right: 15vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-product {
+  text-decoration: none;
+  height: 20px;
+  background: #c5d552;
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 2px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.add-product:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s
+}
+
+.user-product-row {
+  border-top: 1px solid rgb(150, 150, 150);;
+  display: flex;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.user-product-column {
+  float: left;
+  width: 40%;
+}
+
+.user-product-column.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-product-column.plans {
+  font-size: 14px;
+  color: #555;
+  line-height: 30px;
+  /* padding-bottom: 20px;
+  padding-top: 20px; */
+}
+
+.user-product-column.plans ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.user-product-column.plans strong {
+  color: black;
+}
+
+.user-product-column.plans li {
+  list-style-type: none;
+}
+
+.user-product {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-product-link {
+  align-content: center;
+  text-decoration: none;
+  color: black;
+}
+
+.user-product-edit {
+  text-decoration: none;
+  /* font-weight: 500; */
+  background: #c5d552;
+  color: white;
+  border-radius: 3px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.user-product-edit:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s
+}
+
+.user-product-delete {
+  font-size: 14px;
+  background: #c5d552;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  padding-right: 12px;
+  padding-left: 12px;
+}
+
+.user-product-delete:hover {
+  cursor: pointer;
+  color: rgb(150, 150, 150);
+  transition: .5s
+}
+
+.user-product-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
