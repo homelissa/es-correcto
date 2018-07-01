@@ -47,7 +47,7 @@ exports.getUserProducts = function(req, res, next) {
       res.send(doc);
     }
   });
-  
+
 };
 
 exports.subscribeToProduct = function(req, res, next){
@@ -67,6 +67,8 @@ exports.addUserProducts = function(req,res,next) {
   const name = req.body.name;
   let img_url = req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png"
   const userId = jwtDecode(JSON.stringify(token))._id;
+  const newuser = jwtDecode(JSON.stringify(token));
+
   if(!name){
     return res.status(422).send({ error: 'You must enter a product name.'});
   }
@@ -79,7 +81,9 @@ exports.addUserProducts = function(req,res,next) {
   let doc = new Product ({
     name: name,
     img_url: img_url,
-    userId: userId
+    userId: [userId],
+    // users: [newuser],
+
   });
   doc.save(function(err,doc){
     if(err) { return next(err); }
