@@ -85,30 +85,36 @@ class UserProductIndex extends React.Component {
     return(
       <div className="user-product-row">
         <div className="user-product-column product">
-          <h4>
-            <Link to={`userproducts/${userProduct._id}/plans/new`}>
+          <div className="user-product">
+            <Link to={`userproducts/${userProduct._id}/plans/new`} className="user-product-link">
               {userProduct.name}
+            </Link>
+            <Link to={`userproducts/${userProduct._id}/plans/new`} className="user-product-link">
               <img className="prodidximg" src={userProduct.img_url} alt="Italian Trulli" />
             </Link>
-          </h4>
+          </div>
         </div>
         <div className="user-product-column plans">
           {userProduct.plans.map(plan =>
             <ul>
               <li>
-                <div>
-                Cost: {plan.cost}
-                  <Link to={`/userproducts/${userProduct._id}/plans/${plan._id}`}>Edit Plan</Link> | <button onClick={() => this.props.removePlan(plan._id)}>Delete Plan</button>
+                <div className="product-buttons">
+                  <div>
+                    Cost: <strong>{plan.cost}</strong>
+                  </div>
+                  <div>
+                    <Link to={`/userproducts/${userProduct._id}/plans/${plan._id}`} className="user-product-edit">Edit Plan</Link> | <button onClick={() => this.props.removePlan(plan._id)} className="user-product-delete">Delete Plan</button>
+                  </div>
                 </div>
               </li>
               <li>
-                Payment Frequency: {plan.paymentFrequency}
+                Payment Frequency: <strong>{plan.paymentFrequency}</strong>
               </li>
               <li>
-                Contract Length: {plan.contractLength}
+                Contract Length: <strong>{plan.contractLength}</strong>
               </li>
               <li>
-                Enrollment Date: {this.format(new Date(plan.enrollmentDate))}
+                Enrollment Date: <strong>{this.format(new Date(plan.enrollmentDate))}</strong>
               </li>
             </ul>
           )}
@@ -142,8 +148,10 @@ class UserProductIndex extends React.Component {
 
       return (
         <div>
-          <h3>Welcome {this.props.currentUser.firstName} {this.props.currentUser.lastName} These are the details of your subscriptions.</h3>
-          <Link to="/addproducts">Add Product</Link>
+          <div className="user-product-head">
+            <h3>Welcome, {this.props.currentUser.firstName} {this.props.currentUser.lastName}. Here are your subscription details.</h3>
+            <Link to="/addproducts" className="add-product">+ Add Product</Link>
+          </div>
         {productWithPlans.map(userProduct =>
             this.usersubscription(userProduct)
           )}
