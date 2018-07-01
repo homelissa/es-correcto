@@ -24,7 +24,7 @@
 }
 
 .user-product-row {
-  border: 1px solid #555;
+  border-top: 1px solid rgb(150, 150, 150);;
   display: flex;
   margin-left: 10vw;
   margin-right: 10vw;
