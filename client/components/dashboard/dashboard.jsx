@@ -17,19 +17,22 @@ class Dashboard extends React.Component {
       <div>
         <header>
           <div className="home-container">
-
-            <h4 className="tag-line">Es-Correcto <span>One place to manage your subscriptions</span></h4>
-            <div className="all-links">
-            <Link to='/' className="header-link">
-            <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1530035048/Mobile_App_Subscription_Icon.png" />
-            </Link>
-            <div className = "right-side-links">
-            <Link to='/' className="home-link"><h3>Home</h3></Link>
-            <Link to='/userproducts' className="subscriptions-link"><h3>Manage Subscriptions</h3></Link>
-            <Link to='/products' className="product-link"><h3>Products</h3></Link>
-            <Link to="/userreports" className="report-link" > <h3>Reports</h3></Link>
-            <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
+            <div className="title">
+              <Link to='/' className="header-link">
+                <img className="icon" src="https://res.cloudinary.com/archhere/image/upload/v1530035048/Mobile_App_Subscription_Icon.png" />
+              </Link>
+              <Link to='/' className="tag-line"><h4>Es-Correcto </h4></Link>
             </div>
+
+            <div className="all-links">
+              <div className = "right-side-links">
+                <Link to='/' className="home-link">Home</Link>
+                <Link to='/userproducts' className="subscriptions-link">Manage Subscriptions</Link>
+                <Link to='/products' className="product-link">Products</Link>
+                <Link to="/userreports" className="report-link" > Reports</Link>
+                {/* <Link to="/login" onClick={(e) => this.props.logout()} className="logout"> Logout</Link> */}
+                <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
+              </div>
             </div>
           </div>
 
