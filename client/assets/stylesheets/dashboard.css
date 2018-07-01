@@ -1,0 +1,104 @@
+.home-container{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid lightgray;
+}
+
+.title {
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.tag-line{
+  color: #555;
+  font-size: 20px;
+  padding-left: 20px;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+
+.icon{
+  height: 60px;
+  width: 60px;
+}
+
+.all-links{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-side-links{
+  font-family: 'Arimo', sans-serif;
+  display: flex;
+  /* flex-direction: row; */
+  align-items: baseline;
+  padding-right: 10px;
+  color: #555;
+  font-size: 16px;
+  /* letter-spacing: -.3px;
+  line-height: 23px;
+  word-spacing: 1.3px; */
+}
+
+.home-link{
+  padding-right: 50px;
+  text-decoration: none;
+  color: #555;
+}
+
+.home-link:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s;
+}
+
+.subscriptions-link{
+  padding-right: 50px;
+  text-decoration: none;
+  color: #555;
+}
+
+.subscriptions-link:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s;
+}
+
+.product-link{
+  padding-right: 50px;
+  text-decoration: none;
+  color: #555;
+}
+
+.product-link:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s;
+}
+
+.report-link{
+  padding-right: 50px;
+  text-decoration: none;
+  color: #555;
+}
+
+.report-link:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s;
+}
+
+.logout-button {
+  border: none;
+  padding-right: 40px;
+  text-decoration: none;
+  color: #555;
+  font-size: 16px;
+  padding-left: 0px;
+}
+
+.logout-button:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s;
+}
