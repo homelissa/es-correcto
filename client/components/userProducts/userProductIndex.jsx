@@ -78,6 +78,44 @@ class UserProductIndex extends React.Component {
 
   }
 
+
+  usersubscription(userProduct){
+    let subscribedproducts;
+    if (userProduct.plans.length > 0) subscribedproducts = userProduct;
+    else return "";
+    return(
+      <div>
+        <h4>
+          <Link to={`userproducts/${userProduct._id}/plans/new`}>
+            {userProduct.name}
+          </Link>
+        </h4>
+        <div>
+          {userProduct.plans.map(plan =>
+            <ul>
+              <li>
+                <div>
+                Cost: {plan.cost}
+                  <Link to={`/userproducts/${userProduct._id}/plans/${plan._id}`}>Edit Plan</Link> | <button onClick={() => this.props.removePlan(plan._id)}>Delete Plan</button>
+                </div>
+              </li>
+              <li>
+                Payment Frequency: {plan.paymentFrequency}
+              </li>
+              <li>
+                Contract Length: {plan.contractLength}
+              </li>
+              <li>
+                Enrollment Date: {plan.enrollmentDate}
+              </li>
+            </ul>
+          )}
+        </div>
+      </div>
+    );
+
+  }
+
   render() {
     let products = this.props.products;
     console.log("products",products);
@@ -105,32 +143,7 @@ class UserProductIndex extends React.Component {
           <h3>Welcome {this.props.currentUser.firstName} {this.props.currentUser.lastName} These are the details of your subscriptions.</h3>
           <Link to="/addproducts">Add Product</Link>
         {productWithPlans.map(userProduct =>
-            <div>
-              <h4>
-                {userProduct.name}
-              </h4>
-              <div>
-                {userProduct.plans.map(plan =>
-                  <ul>
-                    <li>
-                      <div>
-                      Cost: {plan.cost}
-                        <Link to={`/userproducts/${userProduct._id}/plans/${plan._id}`}>Edit Plan</Link> | <button onClick={() => this.props.removePlan(plan._id)}>Delete Plan</button>
-                      </div>
-                    </li>
-                    <li>
-                      Payment Frequency: {plan.paymentFrequency}
-                    </li>
-                    <li>
-                      Contract Length: {plan.contractLength}
-                    </li>
-                    <li>
-                      Enrollment Date: {plan.enrollmentDate}
-                    </li>
-                  </ul>
-                )}
-              </div>
-            </div>
+            this.usersubscription(userProduct)
           )}
         </div>
       );

@@ -1,11 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { browserHistory } from 'react-router';
+
+
 
 class CreatePlanForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props)
+    this.handleCancel = this.handleCancel.bind(this);
+    console.log(this.props);
     this.state = { cost: '',
       paymentFrequency: '',
       contractLength: '',
@@ -29,7 +33,7 @@ class CreatePlanForm extends React.Component {
 
   handleCancel(e){
     e.preventDefault();
-
+    // this.props.history.push
   }
 
   render() {
