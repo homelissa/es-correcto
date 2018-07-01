@@ -83,13 +83,16 @@ class UserProductIndex extends React.Component {
     if (userProduct.plans.length > 0) subscribedproducts = userProduct;
     else return "";
     return(
-      <div>
-        <h4>
-          <Link to={`userproducts/${userProduct._id}/plans/new`}>
-            {userProduct.name}
-          </Link>
-        </h4>
-        <div>
+      <div className="user-product-row">
+        <div className="user-product-column product">
+          <h4>
+            <Link to={`userproducts/${userProduct._id}/plans/new`}>
+              {userProduct.name}
+              <img className="prodidximg" src={userProduct.img_url} alt="Italian Trulli" />
+            </Link>
+          </h4>
+        </div>
+        <div className="user-product-column plans">
           {userProduct.plans.map(plan =>
             <ul>
               <li>

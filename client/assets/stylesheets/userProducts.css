@@ -1,0 +1,20 @@
+.user-product-row {
+  border: 1px solid #555;
+}
+
+.user-product-column {
+  float: left;
+  width: 50%;
+}
+
+.user-product-column.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-product-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
