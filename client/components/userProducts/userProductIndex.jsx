@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { PieChart } from 'react-easy-chart';
 
 class UserProductIndex extends React.Component {
   componentDidMount() {
@@ -155,6 +156,11 @@ class UserProductIndex extends React.Component {
         }
       });
 
+      let sumArray = [];
+      Object.keys(sum).forEach((productName) => {
+        sumArray.push({ key: productName, value: sum[productName] });
+      });
+
       return(
         <div>
           <table>
@@ -171,7 +177,9 @@ class UserProductIndex extends React.Component {
           })
           }
         </table>
-
+          <PieChart
+            data={sumArray}
+          />
         </div>
       );
     }
