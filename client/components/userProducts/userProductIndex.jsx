@@ -12,7 +12,7 @@ class UserProductIndex extends React.Component {
 
   format(input) {
     let date = new Date(input);
-    let d = date.getDate();
+    let d = date.getDate() + 1;
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
     return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
