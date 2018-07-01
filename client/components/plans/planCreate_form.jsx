@@ -38,6 +38,11 @@ class CreatePlanForm extends React.Component {
 
   render() {
     console.log(this.props.match.params.productId)
+    let date = new Date();
+    let d = date.getDate() + 1;
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+    let formattedDate =  '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
     return (
       this.state ?
         <div className="change-form-container">
@@ -84,6 +89,8 @@ class CreatePlanForm extends React.Component {
               <input
                 type="date"
                 required value={this.state.enrollmentDate}
+                min="2010-01-01"
+                max={formattedDate}
                 onChange={this.update('enrollmentDate')}
                 className="change-form-container-date"
                 placeholder="YYYY-MM-DD"/>
