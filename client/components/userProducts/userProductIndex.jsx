@@ -43,7 +43,6 @@ class UserProductIndex extends React.Component {
       yearcalculator = new Date(yearcalculator.getFullYear(),yearcalculator.getMonth() - 1, yearcalculator.getDate());
 
       monthsPaid += 1;
-      console.log(this.format(yearcalculator));
     }
 
     // calculating edge cases when a person starts subscription in the middle of the month
@@ -173,14 +172,19 @@ class UserProductIndex extends React.Component {
         }
       });
 
+      let monthlyCost = 0;
+      plans.forEach((plan)=>{
+        monthlyCost += plan.cost;
+      });
+
       let sumArray = [];
       Object.keys(sum).forEach((productName) => {
         sumArray.push({ key: productName, value: sum[productName] });
       });
 
       return(
-        <div>
-          <table>
+        <div className="reporttable">
+          <table className="table">
           <tr>
             <th>Product</th>
             <th>Cost</th>
@@ -193,8 +197,14 @@ class UserProductIndex extends React.Component {
             return this.productReport(plan).render;
           })
           }
+          <tfoot>
+            <tr>
+              <td>Monthly Expense</td>
+              <td>{monthlyCost}</td>
+            </tr>
+          </tfoot>
         </table>
-          <PieChart
+          <PieChart className="pie"
             data={sumArray}
           />
         </div>
