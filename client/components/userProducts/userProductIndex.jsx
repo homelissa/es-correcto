@@ -7,6 +7,7 @@ class UserProductIndex extends React.Component {
     this.props.fetchUserProducts();
     this.props.requestAllPlans();
     console.log("component did mount");
+
   }
 
   format(input) {
@@ -101,6 +102,7 @@ class UserProductIndex extends React.Component {
 
       return (
         <div>
+          <h3>Welcome {this.props.currentUser.firstName} {this.props.currentUser.lastName} These are the details of your subscriptions.</h3>
           {productWithPlans.map(userProduct =>
             <div>
               <h4>
@@ -132,6 +134,7 @@ class UserProductIndex extends React.Component {
         </div>
       );
     } else if (this.props.type === "userReport") {
+      console.log("productWithPlans",productWithPlans);
       let plans = productWithPlans.map(userProduct => {
         let plan = userProduct.plans;
         plan.map(object => {

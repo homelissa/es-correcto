@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UserProductIndex from './userProductIndex';
 import { withRouter } from 'react-router-dom';
-import { requestUserProducts } from '../../actions/product_action';
+import { requestAllProducts } from '../../actions/product_action';
 import { requestAllPlans } from '../../actions/plan_action';
 import cookie from 'react-cookies';
 
@@ -17,6 +17,7 @@ const mapStateToProps = state => {
     currentUser = JSON.parse(window.atob(userInfo));
   }
 
+
   console.log("currentUser",currentUser);
   let userPlans = [];
   if (plans){
@@ -26,7 +27,8 @@ const mapStateToProps = state => {
   console.log("userPlans",userPlans);
 
   return {
-    products: Object.values(state.userProducts),
+    products: Object.values(state.products),
+    currentUserId: currentUser._id,
     currentUser: currentUser,
     userPlans: userPlans,
     type: "userReport"
@@ -36,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUserProducts: () => dispatch(requestUserProducts()),
+    fetchUserProducts: () => dispatch(requestAllProducts()),
     requestAllPlans: () => dispatch(requestAllPlans())
   };
 };

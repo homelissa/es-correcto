@@ -34,8 +34,10 @@ exports.addPlan = function(req,res,next) {
   const paymentFrequency = req.body.paymentFrequency;
   const contractLength = req.body.contractLength;
   const enrollmentDate = req.body.enrollmentDate;
-  const userId = jwtDecode(JSON.stringify(token))._id;
+
+  const userId = req.body.userId || jwtDecode(JSON.stringify(token))._id;
   const productId = req.body.productId;
+
 
   if(!cost){
     return res.status(422).send({ error: 'You must enter a cost.'});
@@ -88,7 +90,7 @@ exports.editPlan = function(req,res,next) {
 
 exports.deletePlan = function(req,res,next) {
   console.log("Hit delete")
-  
+
   Plan.findByIdAndRemove(req.params.planId, (err, plan) => {
     if (err) return res.status(500).send(err);
     const response = {
@@ -96,5 +98,5 @@ exports.deletePlan = function(req,res,next) {
       id: plan._id
     };
     return res.status(200).send(response);
-  });  
+  });
 };

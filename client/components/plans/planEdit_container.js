@@ -4,10 +4,11 @@ import EditPlanForm from './planEdit_form';
 import { requestOnePlan, updatePlan, requestAllPlans } from '../../actions/plan_action';
 
 const msp = (state, ownProps) => {
-  const formType = 'Update Plan'
-  const plan = state.plans[ownProps.match.params.planId]
+  const formType = 'Update Plan';
+  const plan = state.plans[ownProps.match.params.planId];
+  const partplan = state.plans;
 
-  return { formType, plan };
+  return { formType, plan, partplan };
 };
 
 const mdp = dispatch => ({

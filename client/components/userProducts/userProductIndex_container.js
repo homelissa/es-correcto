@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UserProductIndex from './userProductIndex';
 import { withRouter } from 'react-router-dom';
-import { requestUserProducts } from '../../actions/product_action';
+import { requestUserProducts,requestAllProducts } from '../../actions/product_action';
 import { requestAllPlans, removePlan } from '../../actions/plan_action';
 import cookie from 'react-cookies';
 
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
   console.log("userPlans",userPlans);
 
   return {
-    products: Object.values(state.userProducts),
+    products: Object.values(state.products),
     currentUser: currentUser,
     userPlans: userPlans,
     type: "userProductIndex"
@@ -36,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUserProducts: () => dispatch(requestUserProducts()),
+    fetchUserProducts: () => dispatch(requestAllProducts()),
     requestAllPlans: () => dispatch(requestAllPlans()),
     removePlan: id => dispatch(removePlan(id))
   };

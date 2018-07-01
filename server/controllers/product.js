@@ -50,13 +50,13 @@ exports.getUserProducts = function(req, res, next) {
 
 };
 
-exports.subscribeToProduct = function(req, res, next){
-  console.log("subscribeToProduct");
-  // const userId1 = req.params.userId;
-  let token = req.headers.authorization;
-  const userId = jwtDecode(JSON.stringify(token))._id;
-  const user = User.findById(userId);
-};
+// exports.subscribeToProduct = function(req, res, next){
+//   console.log("subscribeToProduct");
+//   // const userId1 = req.params.userId;
+//   let token = req.headers.authorization;
+//   const userId = jwtDecode(JSON.stringify(token))._id;
+//   const user = User.findById(userId);
+// };
 
 
 
@@ -66,22 +66,22 @@ exports.addUserProducts = function(req,res,next) {
   let token = req.headers.authorization;
   const name = req.body.name;
   let img_url = req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png"
-  const userId = jwtDecode(JSON.stringify(token))._id;
-  const newuser = jwtDecode(JSON.stringify(token));
+  // const userId = jwtDecode(JSON.stringify(token))._id;
+  // const newuser = jwtDecode(JSON.stringify(token));
 
   if(!name){
     return res.status(422).send({ error: 'You must enter a product name.'});
   }
 
-  if(!userId){
-    return res.status(422).send({ error: 'Plz sign in before you add a product'});
-  }
+  // if(!userId){
+  //   return res.status(422).send({ error: 'Plz sign in before you add a product'});
+  // }
 
 
   let doc = new Product ({
     name: name,
     img_url: img_url,
-    userId: [userId],
+    // userId: [userId],
     // users: [newuser],
 
   });

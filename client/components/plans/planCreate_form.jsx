@@ -10,7 +10,8 @@ class CreatePlanForm extends React.Component {
       paymentFrequency: '',
       contractLength: '',
       enrollmentDate: '',
-      productId: this.props.match.params.productId
+      productId: this.props.match.params.productId,
+      userId: this.props.userId,
     };
   }
 

@@ -8,7 +8,7 @@ class EditPlanForm extends React.Component {
     console.log(this.props)
     this.state = this.props.plan;
     console.log(this.state)
-    
+
     // this.state = {
     //   _id: this.props.match.params.planId,
     //   cost: this.state.cost || '',
@@ -31,31 +31,31 @@ class EditPlanForm extends React.Component {
     this.props.requestOnePlan(this.props.match.params.planId);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props.plan !== newProps.plan) {
-      this.setState({
-        _id: newProps.plan._id,
-        cost: newProps.plan.cost,
-        paymentFrequency: newProps.plan.paymentFrequency,
-        contractLength: newProps.plan.contractLength,
-        enrollmentDate: this.format(new Date(newProps.plan.enrollmentDate)),
-        productId: newProps.productId
-      });
-    }
-  }
-  
+  // componentWillReceiveProps(newProps) {
+  //   if (this.props.plan !== newProps.plan) {
+  //     this.setState({
+  //       _id: newProps.plan._id,
+  //       cost: newProps.plan.cost,
+  //       paymentFrequency: newProps.plan.paymentFrequency,
+  //       contractLength: newProps.plan.contractLength,
+  //       enrollmentDate: this.format(new Date(newProps.plan.enrollmentDate)),
+  //       productId: newProps.productId
+  //     });
+  //   }
+  // }
+
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
   }
-  
+
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state)
     this.props.action(this.state).then((action) => this.props.history.push(`/userproducts`));
   }
-  
+
   render() {
     if (!this.props.plan) {
       return null;
