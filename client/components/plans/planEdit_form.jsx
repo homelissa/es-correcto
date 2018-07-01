@@ -63,7 +63,7 @@ class EditPlanForm extends React.Component {
     console.log(this.props)
     console.log(this.state.enrollmentDate);
     let date = new Date(this.state.enrollmentDate);
-    let d = date.getDate();
+    let d = date.getDate() + 1;
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
     let formattedDate =  '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
