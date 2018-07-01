@@ -19,20 +19,23 @@
   align-items: center;
   height: 250px;
   width: 250px;
-  border: 1px solid #555;
+  border: 1px solid rgb(170, 170, 170);
+  pointer-events: none;
+}
+
+.prodidxouterli:hover {
+  background: rgb(219, 219, 219);
+  transition: .5s;
 }
 
 .products-link {
   text-decoration: none;
   color: #555;
-}
-
-.products-link:hover {
-  color: rgb(150, 150, 150);
-  transition: .5s
+  pointer-events: auto;
 }
 
 .prodidximg{
   max-width: 150px;
   max-height: 150px;
+  pointer-events: auto;
 }
