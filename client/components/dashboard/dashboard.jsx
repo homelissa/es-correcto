@@ -26,7 +26,7 @@ class Dashboard extends React.Component {
 
             <div className="all-links">
               <div className = "right-side-links">
-                <Link to='/' className="home-link">Home</Link>
+                {/* <Link to='/' className="home-link">Home</Link> */}
                 <Link to='/userproducts' className="subscriptions-link">Manage Subscriptions</Link>
                 <Link to='/products' className="product-link">Products</Link>
                 <Link to="/userreports" className="report-link" > Reports</Link>

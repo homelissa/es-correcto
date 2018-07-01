@@ -1,0 +1,30 @@
+.prodidxouter {
+  padding-top: 20px;
+  align-items: center;
+}
+
+.product-index-container {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 750px;
+}
+
+.prodidxouterli {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 250px;
+  /* border: 1px solid #555; */
+}
+
+.products-link {
+  text-decoration: none;
+  color: #555;
+}
+
+.products-link:hover {
+  color: rgb(150, 150, 150);
+  transition: .5s
+}

@@ -10,48 +10,20 @@ class ProductIndex extends React.Component {
     let presetProducts = this.props.products.reverse();
     return (
       <div className="prodidxouter">
-        <Link to="/addproducts">Add Product</Link>
-        <ul>
+        <Link to="/addproducts" className="add-product">+ Add Product</Link>
 
-
-
-        {presetProducts.map(product =>
-          <li className = "prodidxouterli">
-
-            <Link to={`userproducts/${product._id}/plans/new`}>
-              <div>
-                <h4>
-                  {product.name}
-                </h4>
+        <div className="product-index-container">
+          {presetProducts.map(product =>
+            <div className = "prodidxouterli">
+              <Link to={`userproducts/${product._id}/plans/new`} className="products-link">
+                {product.name}
+              </Link>
+              <Link to={`userproducts/${product._id}/plans/new`} className="products-link">
                 <img className = "prodidximg" src={product.img_url} alt="Italian Trulli" />
-              <div>
-                <ul id="index-list">
-                  {product.plans.map(plan =>
-                    <li id="index-item">
-                    <ul>
-                      <li>
-                        Cost: {plan.cost}
-                      </li>
-                      <li>
-                        Payment Frequency: {plan.paymentFrequency}
-                      </li>
-                      <li>
-                        Contract Length: {plan.contractLength}
-                      </li>
-
-
-                    </ul>
-                  </li>
-                  )}
-                </ul>
-              </div>
+              </Link>
             </div>
-          </Link>
-        </li>
-        )}
-      </ul>
-
-
+          )}
+        </div>
 
       </div>
     );
