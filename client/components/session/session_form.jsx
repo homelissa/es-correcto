@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
           this.props.login(this.state)
             .then(() => this.props.history.push('/'));
         }
-      }, 150);
+      }, 100);
 
     };
     newdemo();

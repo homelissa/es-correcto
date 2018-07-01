@@ -93,6 +93,9 @@ class EditPlanForm extends React.Component {
             <label>Payment Frequency(in months):
             <br />
               <input
+                min="1"
+                step="11"
+                max="12"
                 type="number"
                 required value={this.state.paymentFrequency}
                 onChange={this.update('paymentFrequency')}
@@ -105,6 +108,9 @@ class EditPlanForm extends React.Component {
             <br />
               <input
                 type="number"
+                min="12"
+                step="12"
+                max="120"
                 required value={this.state.contractLength}
                 onChange={this.update('contractLength')}
                 className="change-form-container-input" />

@@ -60,17 +60,18 @@ class CreatePlanForm extends React.Component {
             </label>
             <br />
             <br />
+              <label>Payment Frequency(in months):
+              <br />
+                <input
+                  type="number"
+                  min="1"
+                  step="11"
+                  max="12"
+                  required value={this.state.paymentFrequency}
+                  onChange={this.update('paymentFrequency')}
+                  className="change-form-container-input" />
+              </label>
 
-            <label>Payment Frequency(in months):
-            <br />
-              <input
-                type="number"
-                min="1"
-                pattern= "[1,12]"
-                required value={this.state.paymentFrequency}
-                onChange={this.update('paymentFrequency')}
-                className="change-form-container-input" />
-            </label>
             <br />
             <br />
 
@@ -78,6 +79,9 @@ class CreatePlanForm extends React.Component {
             <br />
               <input
                 type="number"
+                min="12"
+                step="12"
+                max="120"
                 required value={this.state.contractLength}
                 onChange={this.update('contractLength')}
                 className="change-form-container-input" />

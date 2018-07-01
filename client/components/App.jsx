@@ -24,9 +24,11 @@ import {
 const App = () => {
   return (
     <div>
+
+      <ProtectedRoute path="/" component={DashboardContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        <ProtectedRoute path="/" component={DashboardContainer}/>
+      
       <Switch>
         <ProtectedRoute exact path="/products" component={ProductIndexContainer}/>
         <ProtectedRoute exact path="/userproducts" component={UserProductIndexContainer}/>

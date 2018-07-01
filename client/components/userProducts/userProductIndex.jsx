@@ -259,10 +259,11 @@ class UserProductIndex extends React.Component {
           <tfoot>
             <tr>
               <td>Monthly Expense</td>
-              <td>$ {monthlyCost}</td>
+              <td>$ {Math.round(monthlyCost)}</td>
             </tr>
           </tfoot>
         </table>
+          <h4>Total expense per  product subscription</h4>
           <PieChart className="pie"
             data={sumArray}
           />
