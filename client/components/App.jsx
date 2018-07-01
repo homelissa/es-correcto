@@ -24,7 +24,8 @@ import {
 const App = () => {
   return (
     <div>
-      <DashboardContainer />
+
+      <ProtectedRoute path="/" component={DashboardContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Switch>
