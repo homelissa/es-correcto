@@ -1,0 +1,39 @@
+.reporttable{
+  margin-top: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.table{
+  border: 1px solid lightgray;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 30px;
+  width: 87vw;
+}
+
+th,td{
+  padding: 5px;
+  background: #f1f1f1;
+}
+
+tfoot{
+  font-weight: bold;
+  color: red;
+}
+
+tr{
+  padding-right: 10px;
+}
+
+.pie-title {
+  margin-left: 4vw;
+}
+
+.pie-report {
+  width: 40vw;
+  margin-left: 30vw;
+  align-content: center;
+}

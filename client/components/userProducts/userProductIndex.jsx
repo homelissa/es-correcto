@@ -243,30 +243,32 @@ class UserProductIndex extends React.Component {
       return(
         <div className="reporttable">
           <table className="table">
-          <tr>
-            <th>Product</th>
-            <th>Cost</th>
-            <th>PaymentFrequency</th>
-            <th>Enrollment Date</th>
-            <th>Current Payment Date</th>
-            <th>Next Payment Date</th>
-            <th>Amount paid this year</th>
-          </tr>
-          {plans.map(plan => {
-            return this.productReport(plan).render;
-          })
-          }
-          <tfoot>
             <tr>
-              <td>Monthly Expense</td>
-              <td>$ {Math.round(monthlyCost)}</td>
+              <th>Product</th>
+              <th>Cost</th>
+              <th>PaymentFrequency</th>
+              <th>Enrollment Date</th>
+              <th>Current Payment Date</th>
+              <th>Next Payment Date</th>
+              <th>Amount paid this year</th>
             </tr>
-          </tfoot>
-        </table>
-          <h4>Total expense per  product subscription</h4>
-          <PieChart className="pie"
-            data={sumArray}
-          />
+            {plans.map(plan => {
+              return this.productReport(plan).render;
+            })
+            }
+            <tfoot>
+              <tr>
+                <td>Monthly Expense</td>
+                <td>$ {Math.round(monthlyCost)}</td>
+              </tr>
+            </tfoot>
+          </table>
+          <div className="pie-report">
+            <h4 className="pie-title">Total expense per product subscription</h4>
+              <PieChart className="pie"
+                data={sumArray}
+            />
+          </div>
         </div>
       );
     }

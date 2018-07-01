@@ -1,5 +1,8 @@
 .prodidxouter {
   padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -16,7 +19,7 @@
   align-items: center;
   height: 250px;
   width: 250px;
-  /* border: 1px solid #555; */
+  border: 1px solid #555;
 }
 
 .products-link {
@@ -27,4 +30,9 @@
 .products-link:hover {
   color: rgb(150, 150, 150);
   transition: .5s
+}
+
+.prodidximg{
+  max-width: 150px;
+  max-height: 150px;
 }
