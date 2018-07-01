@@ -51,7 +51,6 @@ export const updatePlan = (plan) => {
 export const deletePlan = id => {
   return $.ajax({
     method: 'DELETE',
-    data: JSON.stringify(id),
     url: `http://localhost:3000/api/plans/${id}`,
     dataType: 'html',
     contentType: "application/json; charset=utf-8",

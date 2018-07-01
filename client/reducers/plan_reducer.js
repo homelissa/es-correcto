@@ -18,7 +18,7 @@ const planReducer = (state = {}, action) => {
       return hash_plans;
     case REMOVE_PLAN:
       newState = merge({}, state);
-      delete newState[plan._id];
+      delete newState[action.id];
       return newState;
     default:
       return state;

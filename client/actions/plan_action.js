@@ -24,6 +24,7 @@ export const updatePlan = (plan) => dispatch => {
 };
 
 export const removePlan = id => dispatch => {
-  return PlanAPIUtil.deletePlan(id)
-    .then(response => dispatch({ type: REMOVE_PLAN, payload: response }));
+  PlanAPIUtil.deletePlan(id);
+  console.log("hi");
+  dispatch({type: REMOVE_PLAN, id: id});
 };
