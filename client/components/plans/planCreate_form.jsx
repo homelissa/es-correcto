@@ -53,6 +53,7 @@ class CreatePlanForm extends React.Component {
             <br />
               <input
                 type="number"
+                step="any"
                 required value={this.state.cost}
                 onChange={this.update('cost')}
                 className="change-form-container-input" />
@@ -65,7 +66,7 @@ class CreatePlanForm extends React.Component {
               <input
                 type="number"
                 min="1"
-                step="any"
+                pattern= "[1,12]"
                 required value={this.state.paymentFrequency}
                 onChange={this.update('paymentFrequency')}
                 className="change-form-container-input" />

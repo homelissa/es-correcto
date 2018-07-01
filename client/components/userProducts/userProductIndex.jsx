@@ -33,8 +33,34 @@ class UserProductIndex extends React.Component {
     }
     let M = m+1;
 
-    let currentDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
-    let nextDate = '' + y + '-' + (M<=9 ? '0' + M : M) + '-' + (d <= 9 ? '0' + d : d);
+    let annualYear = temp.getFullYear();
+    let annualMonth = date.getMonth() + 1;
+    if ((date.getMonth() + 1) < (temp.getMonth() + 1)){
+      annualYear = temp.getFullYear() + 1;
+    }
+    let annualDate = date.getDate();
+    if((annualMonth === temp.getMonth() + 1) && annualDate <= temp.getDate()){
+      annualYear = temp.getFullYear() + 1;
+    }
+    let nextYear = annualYear + 1;
+    let annualPaydate = '' + annualYear + '-' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate);
+    let annualnextPaydate = '' + nextYear + '-' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate);
+    let currentDate;
+    if(plan.paymentFrequency === 1){
+      currentDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    } else if(plan.paymentFrequency === 12){
+      currentDate = annualPaydate;
+    }
+    let nextDate;
+    if(plan.paymentFrequency === 1){
+      nextDate = '' + y + '-' + (M<=9 ? '0' + M : M) + '-' + (d <= 9 ? '0' + d : d);
+    } else if(plan.paymentFrequency === 12){
+      nextDate = annualnextPaydate;
+    }
+
+
+
+
     let monthsPaid = -1;
     if (date.getDate() < 3) {
       monthsPaid += 1;
@@ -53,14 +79,27 @@ class UserProductIndex extends React.Component {
     //   actualPaid = ((plan.cost * countofdays) / 30);
     // }
 
-     let amountPaidThisYear = Math.max(0,monthsPaid%12 * plan.cost);
+     let amountPaidThisYear;
+     if (plan.paymentFrequency === 1){
+      amountPaidThisYear = Math.max(plan.cost,monthsPaid%13 * plan.cost);
+    } else {
+      amountPaidThisYear = plan.cost;
+    }
+    let frequency;
+    if (plan.paymentFrequency === 1){
+      frequency = "Monthly";
+    } else if(plan.paymentFrequency === 12) {
+      frequency = "Annual";
+    }
+
 
 
      let resultObj = {};
      resultObj.render = (
        <tr>
          <td>{plan.name}</td>
-         <td>{plan.cost}</td>
+         <td>$ {plan.cost}</td>
+         <td>{frequency}</td>
          <td>{formatedDate}</td>
          <td>{currentDate}</td>
          <td>{nextDate}</td>
@@ -174,6 +213,14 @@ class UserProductIndex extends React.Component {
 
       let monthlyCost = 0;
       plans.forEach((plan)=>{
+        let d = new Date(plan.enrollmentDate);
+        let month = d.getMonth();
+        let year = d.getFullYear();
+        let current = new Date();
+        let currentMonth = current.getMonth();
+        let currentyear = current.getFullYear();
+        if(plan.paymentFrequency === 1 ||
+          (month === currentMonth && year !== currentyear))
         monthlyCost += plan.cost;
       });
 
@@ -188,6 +235,7 @@ class UserProductIndex extends React.Component {
           <tr>
             <th>Product</th>
             <th>Cost</th>
+            <th>PaymentFrequency</th>
             <th>Enrollment Date</th>
             <th>Current Payment Date</th>
             <th>Next Payment Date</th>
@@ -200,7 +248,7 @@ class UserProductIndex extends React.Component {
           <tfoot>
             <tr>
               <td>Monthly Expense</td>
-              <td>{monthlyCost}</td>
+              <td>$ {monthlyCost}</td>
             </tr>
           </tfoot>
         </table>
