@@ -55,16 +55,24 @@ class UserProductIndex extends React.Component {
      let amountPaidThisYear = Math.max(0,monthsPaid%12 * plan.cost);
 
 
-    return(
-        <tr>
-          <td>{plan.name}</td>
-          <td>{plan.cost}</td>
-          <td>{formatedDate}</td>
-          <td>{currentDate}</td>
-          <td>{nextDate}</td>
-          <td>{amountPaidThisYear}</td>
-        </tr>
-    );
+     let resultObj = {};
+     resultObj.render = (
+       <tr>
+         <td>{plan.name}</td>
+         <td>{plan.cost}</td>
+         <td>{formatedDate}</td>
+         <td>{currentDate}</td>
+         <td>{nextDate}</td>
+         <td>{amountPaidThisYear}</td>
+       </tr>
+     );
+     resultObj.amountPaidThisYear = amountPaidThisYear;
+     resultObj.name = plan.name;
+
+     return(
+         resultObj
+     );
+
 
   }
 
@@ -134,6 +142,19 @@ class UserProductIndex extends React.Component {
       plans = plans.filter(plan => plan.length > 0);
       plans = plans.reduce((acc, currentValue) => acc.concat(currentValue), []);
       console.log(plans);
+
+      let sum = {};
+      let costs = plans.map(plan => {
+        return this.productReport(plan);
+      });
+      costs.forEach(planObj=>{
+        if(sum[planObj.name] === undefined){
+          sum[planObj.name] = planObj.amountPaidThisYear;
+        }else{
+          sum[planObj.name] += planObj.amountPaidThisYear;
+        }
+      });
+
       return(
         <div>
           <table>
@@ -146,7 +167,7 @@ class UserProductIndex extends React.Component {
             <th>Amount paid this year</th>
           </tr>
           {plans.map(plan => {
-            return this.productReport(plan);
+            return this.productReport(plan).render;
           })
           }
         </table>
