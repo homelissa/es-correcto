@@ -105,7 +105,7 @@ class UserProductIndex extends React.Component {
                 Contract Length: {plan.contractLength}
               </li>
               <li>
-                Enrollment Date: {plan.enrollmentDate}
+                Enrollment Date: {this.format(new Date(plan.enrollmentDate))}
               </li>
             </ul>
           )}

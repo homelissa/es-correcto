@@ -7,7 +7,7 @@ class ProductIndex extends React.Component {
   }
 
   render(){
-    let presetProducts = this.props.products;
+    let presetProducts = this.props.products.reverse();
     return (
       <div className="prodidxouter">
         <Link to="/addproducts">Add Product</Link>

@@ -34,12 +34,12 @@ class EditPlanForm extends React.Component {
   // componentWillReceiveProps(newProps) {
   //   if (this.props.plan !== newProps.plan) {
   //     this.setState({
-  //       _id: newProps.plan._id,
-  //       cost: newProps.plan.cost,
-  //       paymentFrequency: newProps.plan.paymentFrequency,
-  //       contractLength: newProps.plan.contractLength,
+  // //       _id: newProps.plan._id,
+  // //       cost: newProps.plan.cost,
+  // //       paymentFrequency: newProps.plan.paymentFrequency,
+  // //       contractLength: newProps.plan.contractLength,
   //       enrollmentDate: this.format(new Date(newProps.plan.enrollmentDate)),
-  //       productId: newProps.productId
+  // //       productId: newProps.productId
   //     });
   //   }
   // }
@@ -61,39 +61,50 @@ class EditPlanForm extends React.Component {
       return null;
     }
     console.log(this.props)
+    console.log(this.state.enrollmentDate);
+    let date = new Date(this.state.enrollmentDate);
+    let d = date.getDate();
+    let m = date.getMonth() + 1;
+    let y = date.getFullYear();
+    let formattedDate =  '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    console.log(formattedDate);
     return (
       this.state ?
         <div className="change-form-container">
           <h3>Update Plan</h3>
           <br />
           <form onSubmit={this.handleSubmit} className="change-form">
-            <label>Cost:
+            <label>Cost(in $):
             <br />
               <input
-                type="text"
-                value={this.state.cost}
+                type="number"
+                min="0"
+                step="0.01"
+                data-number-to-fixed="2"
+                data-number-stepfactor="100"
+                required value={this.state.cost}
                 onChange={this.update('cost')}
                 className="change-form-container-input" />
             </label>
             <br />
             <br />
 
-            <label>Payment Frequency:
+            <label>Payment Frequency(in months):
             <br />
               <input
-                type="text"
-                value={this.state.paymentFrequency}
+                type="number"
+                required value={this.state.paymentFrequency}
                 onChange={this.update('paymentFrequency')}
                 className="change-form-container-input" />
             </label>
             <br />
             <br />
 
-            <label>Contract Length:
+            <label>Contract Length(in months):
             <br />
               <input
-                type="text"
-                value={this.state.contractLength}
+                type="number"
+                required value={this.state.contractLength}
                 onChange={this.update('contractLength')}
                 className="change-form-container-input" />
             </label>
@@ -103,11 +114,11 @@ class EditPlanForm extends React.Component {
             <label>Enrollment Date (YYYY-MM-DD):
             <br />
               <input
-                type="text"
-                value={this.state.enrollmentDate}
+                type="date"
+                required value={formattedDate}
                 onChange={this.update('enrollmentDate')}
                 className="change-form-container-date"
-                placeholder="YYYY-MM-DD" />
+                 />
             </label>
             <br />
             <br />

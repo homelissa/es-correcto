@@ -44,33 +44,35 @@ class CreatePlanForm extends React.Component {
           <h3>Create Plan</h3>
           <br />
           <form onSubmit={this.handleSubmit} className="change-form">
-            <label>Cost:
+            <label>Cost(in $):
             <br />
               <input
-                type="text"
-                value={this.state.cost}
+                type="number"
+                required value={this.state.cost}
                 onChange={this.update('cost')}
                 className="change-form-container-input" />
             </label>
             <br />
             <br />
 
-            <label>Payment Frequency:
+            <label>Payment Frequency(in months):
             <br />
               <input
-                type="text"
-                value={this.state.paymentFrequency}
+                type="number"
+                min="1"
+                step="any"
+                required value={this.state.paymentFrequency}
                 onChange={this.update('paymentFrequency')}
                 className="change-form-container-input" />
             </label>
             <br />
             <br />
 
-            <label>Contract Length:
+            <label>Contract Length(in months):
             <br />
               <input
-                type="text"
-                value={this.state.contractLength}
+                type="number"
+                required value={this.state.contractLength}
                 onChange={this.update('contractLength')}
                 className="change-form-container-input" />
             </label>
@@ -80,8 +82,8 @@ class CreatePlanForm extends React.Component {
             <label>Enrollment Date (YYYY-MM-DD):
             <br />
               <input
-                type="text"
-                value={this.state.enrollmentDate}
+                type="date"
+                required value={this.state.enrollmentDate}
                 onChange={this.update('enrollmentDate')}
                 className="change-form-container-date"
                 placeholder="YYYY-MM-DD"/>

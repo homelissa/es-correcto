@@ -44,7 +44,7 @@ class AddProductForm extends React.Component {
             <br />
               <input
                 type="text"
-                value={this.state.name}
+                required value={this.state.name}
                 onChange={this.update('name')}
                 className="change-form-container-input" />
             </label>
