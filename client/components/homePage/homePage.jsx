@@ -11,8 +11,8 @@ render() {
     <p> Start Saving!</p>
     <p> We provide you with monthly reports based on your subscription plans and related costs.</p>
     <p> We also send you email remainders informing you when a payment is due.</p>
-    <p>Simply go to <strong>product</strong> page. If you see your product in the list, click on the product and add your subscription details.
-    <p></p> If you are unable to view your product, click on <strong>"add product"</strong> button and add your custom product and your subscription details. </p>
+    <p>Simply go to the <strong>"product"</strong> page. If you see your product in the list, click on the product and add your subscription details.
+    <p></p> If you do not see your product, click on the <strong>"add product"</strong> button and add your custom product and subscription details. </p>
     <p>We will track your subscription now!</p>
     </div>
     <img className="homepageimg" src = "https://res.cloudinary.com/archhere/image/upload/v1530512432/0124efaf-4861-4d81-a2a4-d97af99cf347._SR300_300_.jpg"/>

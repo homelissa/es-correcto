@@ -26,13 +26,13 @@ module.exports = function(app) {
 
   productRoutes.post("/", ProductController.addUserProducts);
   productRoutes.get('/', ProductController.getProducts);
-  productRoutes.get("/user", ProductController.getUserProducts);
+  // productRoutes.get("/user", ProductController.getUserProducts);
   productRoutes.get("/:name", ProductController.getProduct);
 
   // productRoutes.post("/:name/add", ProductController.addUser);
 
   // app.get('api/products/user', PlanController.addPlan);
-  
+
   app.post('/api/plans', PlanController.addPlan);
   // app.post('/api/products/:name/users/:userId/plans', PlanController.addPlan);
   app.get('/api/plans', PlanController.getPlans);
