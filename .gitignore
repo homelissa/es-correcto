@@ -3,3 +3,4 @@ bundle.js.map
 
 client/bundle.js
 client/bundle.js.map
+node_modules
