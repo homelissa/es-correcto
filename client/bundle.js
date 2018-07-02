@@ -289,6 +289,10 @@ var login = exports.login = function login(user) {
 
       dispatch(receiveCurrentUser(user));
     }, function (error) {
+<<<<<<< HEAD
+=======
+      console.log(error);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       APIUtil.errorHandler(dispatch, error, AUTH_ERROR);
     });
   };
@@ -302,10 +306,17 @@ var login = exports.login = function login(user) {
 
 var logout = exports.logout = function logout() {
   return function (dispatch) {
+<<<<<<< HEAD
 
     dispatch({ type: UNAUTH_USER });
     _reactCookies2.default.remove('token', { path: '/' });
     // window.location.href = '/#/login';
+=======
+    dispatch({ type: UNAUTH_USER });
+    _reactCookies2.default.remove('token', { path: '/' });
+    console.log('logged out!!!!');
+    // window.location.href = 'es-correcto/#/login';
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   };
 };
 
@@ -321,6 +332,10 @@ var register = exports.register = function register(user) {
 
       dispatch(receiveCurrentUser(user));
     }, function (error) {
+<<<<<<< HEAD
+=======
+      console.log(error);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       APIUtil.errorHandler(dispatch, error, AUTH_ERROR);
     });
   };
@@ -528,9 +543,13 @@ var Dashboard = function (_React$Component) {
                 _react2.default.createElement(
                   'button',
                   { type: 'button', className: 'logout-button', onClick: function onClick(e) {
+<<<<<<< HEAD
                       return _this2.props.logout().then(function (logout) {
                         return _this2.props.history.push('/login');
                       });
+=======
+                      return _this2.props.logout();
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
                     } },
                   'Logout'
                 )
@@ -591,6 +610,10 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+<<<<<<< HEAD
+=======
+  // console.log("mdp");
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   return {
     // loadUserFromToken: () => {
     //   return cookie.load('token'),
@@ -646,6 +669,7 @@ var HomePage = function (_React$Component) {
   _createClass(HomePage, [{
     key: "render",
     value: function render() {
+<<<<<<< HEAD
       if (this.props.currentUser) {
         return _react2.default.createElement(
           "div",
@@ -705,6 +729,92 @@ var HomePage = function (_React$Component) {
       } else {
         return _react2.default.createElement("div", null);
       }
+=======
+      return _react2.default.createElement(
+        "div",
+        { className: "homepage" },
+        _react2.default.createElement(
+          "div",
+          { id: "demo" },
+          _react2.default.createElement(
+            "h4",
+            null,
+            this.props.currentUser.firstName,
+            " ",
+            this.props.currentUser.lastName,
+            ", are you having a hard time keeping track of your subscriptions?"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "Es-Correcto helps you manage all your subscriptions under one umbrella."
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            " Start Saving!"
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            ' ',
+            "We provide you with monthly reports based on your subscription plans and related costs."
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            ' ',
+            "We also send you email remainders informing you when a payment is due."
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "If you do not see your product, click on the",
+            ' ',
+            _react2.default.createElement(
+              "strong",
+              null,
+              "\"add product\""
+            ),
+            " button and add your custom product and subscription details.",
+            ' '
+          ),
+          _react2.default.createElement(
+            "p",
+            null,
+            "We will track your subscription now!"
+          )
+        ),
+        _react2.default.createElement("img", {
+          className: "homepageimg",
+          src: "https://res.cloudinary.com/archhere/image/upload/v1530512432/0124efaf-4861-4d81-a2a4-d97af99cf347._SR300_300_.jpg"
+        }),
+        _react2.default.createElement(
+          "div",
+          { className: "footer-top" },
+          _react2.default.createElement(
+            "div",
+            { className: "footer" },
+            _react2.default.createElement(
+              "div",
+              { id: "footer-caption" },
+              "Made by Archana Kannan, Bryan Lin, Melissa Ho and Andzu Schaefer",
+              _react2.default.createElement(
+                "a",
+                {
+                  href: "https://github.com/homelissa/es-correcto",
+                  id: "linkedin",
+                  target: "_blank" },
+                _react2.default.createElement("img", {
+                  className: "gitimg",
+                  src: "https://res.cloudinary.com/archhere/image/upload/v1530495612/ivory-github-512.png"
+                })
+              )
+            )
+          )
+        )
+      );
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
     }
   }]);
 
@@ -807,6 +917,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var msp = function msp(state, ownProps) {
   var formType = 'Create Plan';
   var product = state.products[ownProps.match.params.productId];
+<<<<<<< HEAD
+=======
+  console.log("product", product);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var token = _reactCookies2.default.load('token');
   var currentUser = void 0;
   if (token) {
@@ -878,6 +992,10 @@ var CreatePlanForm = function (_React$Component) {
 
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleCancel = _this.handleCancel.bind(_this);
+<<<<<<< HEAD
+=======
+    console.log(_this.props);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
     _this.state = { cost: '',
       paymentFrequency: '',
       contractLength: '',
@@ -903,6 +1021,10 @@ var CreatePlanForm = function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+<<<<<<< HEAD
+=======
+      console.log(this.state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       this.props.action(this.state).then(function (action) {
         return _this3.props.history.push('/userproducts');
       });
@@ -916,6 +1038,10 @@ var CreatePlanForm = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+<<<<<<< HEAD
+=======
+      console.log(this.props.match.params.productId);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       var date = new Date();
       var d = date.getDate() + 1;
       var m = date.getMonth() + 1;
@@ -1103,7 +1229,13 @@ var EditPlanForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (EditPlanForm.__proto__ || Object.getPrototypeOf(EditPlanForm)).call(this, props));
 
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+<<<<<<< HEAD
     _this.state = _this.props.plan;
+=======
+    console.log(_this.props);
+    _this.state = _this.props.plan;
+    console.log(_this.state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
     // this.state = {
     //   _id: this.props.match.params.planId,
@@ -1159,6 +1291,10 @@ var EditPlanForm = function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+<<<<<<< HEAD
+=======
+      console.log(this.state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       this.props.action(this.state).then(function (action) {
         return _this3.props.history.push('/userproducts');
       });
@@ -1169,12 +1305,21 @@ var EditPlanForm = function (_React$Component) {
       if (!this.props.plan) {
         return null;
       }
+<<<<<<< HEAD
+=======
+      console.log(this.props);
+      console.log(this.state.enrollmentDate);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       var date = new Date();
       var d = date.getDate() + 1;
       var m = date.getMonth() + 1;
       var y = date.getFullYear();
       var todayDate = '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
       var formattedDate = this.format(this.state.enrollmentDate);
+<<<<<<< HEAD
+=======
+      console.log(formattedDate);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       return this.state ? _react2.default.createElement(
         'div',
         { className: 'change-form-container' },
@@ -1368,6 +1513,10 @@ var AddProductForm = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (AddProductForm.__proto__ || Object.getPrototypeOf(AddProductForm)).call(this, props));
 
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+<<<<<<< HEAD
+=======
+    console.log(_this.props);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
     _this.state = {
       name: ''
     };
@@ -1389,6 +1538,10 @@ var AddProductForm = function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+<<<<<<< HEAD
+=======
+      console.log(this.state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       this.props.action(this.state).then(function (action) {
         return _this3.props.history.push('/products');
       });
@@ -1861,6 +2014,10 @@ var SessionForm = function (_React$Component) {
   }, {
     key: 'renderErrors',
     value: function renderErrors() {
+<<<<<<< HEAD
+=======
+      console.log(this.props);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       var slice = void 0;
       if (this.props.formType === "Signup") {
         if (this.props.errors) {
@@ -2043,6 +2200,10 @@ var UserProductIndex = function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchUserProducts();
       this.props.requestAllPlans();
+<<<<<<< HEAD
+=======
+      console.log("component did mount");
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
     }
   }, {
     key: 'format',
@@ -2287,6 +2448,10 @@ var UserProductIndex = function (_React$Component) {
       var _this3 = this;
 
       var products = this.props.products;
+<<<<<<< HEAD
+=======
+      console.log("products", products);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
       var productWithPlans;
       if (products) {
         productWithPlans = products.map(function (product) {
@@ -2298,6 +2463,10 @@ var UserProductIndex = function (_React$Component) {
         });
         // return productWithPlans;
       }
+<<<<<<< HEAD
+=======
+      console.log("productwithplans", productWithPlans);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
       // if (!productWithPlans) {
       //   return (
@@ -2332,6 +2501,10 @@ var UserProductIndex = function (_React$Component) {
           })
         );
       } else if (this.props.type === "userReport") {
+<<<<<<< HEAD
+=======
+        console.log("productWithPlans", productWithPlans);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
         var plans = productWithPlans.map(function (userProduct) {
           var plan = userProduct.plans;
           plan.map(function (object) {
@@ -2346,6 +2519,10 @@ var UserProductIndex = function (_React$Component) {
         plans = plans.reduce(function (acc, currentValue) {
           return acc.concat(currentValue);
         }, []);
+<<<<<<< HEAD
+=======
+        console.log(plans);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
         var sum = {};
         var costs = plans.map(function (plan) {
@@ -2527,6 +2704,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   var plans = Object.values(state.plans);
+<<<<<<< HEAD
+=======
+  console.log("state", state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var token = _reactCookies2.default.load('token');
   var currentUser = void 0;
   if (token) {
@@ -2535,12 +2716,21 @@ var mapStateToProps = function mapStateToProps(state) {
     currentUser = JSON.parse(window.atob(userInfo));
   }
 
+<<<<<<< HEAD
+=======
+  console.log("currentUser", currentUser);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var userPlans = [];
   if (plans) {
     userPlans = plans.filter(function (plan) {
       return plan.userId === currentUser._id;
     });
   }
+<<<<<<< HEAD
+=======
+  console.log("plans", plans);
+  console.log("userPlans", userPlans);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
   return {
     products: Object.values(state.products),
@@ -2606,6 +2796,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mapStateToProps = function mapStateToProps(state) {
   var plans = Object.values(state.plans);
+<<<<<<< HEAD
+=======
+  console.log("state", state);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var token = _reactCookies2.default.load('token');
   var currentUser = void 0;
   if (token) {
@@ -2614,12 +2808,21 @@ var mapStateToProps = function mapStateToProps(state) {
     currentUser = JSON.parse(window.atob(userInfo));
   }
 
+<<<<<<< HEAD
+=======
+  console.log("currentUser", currentUser);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var userPlans = [];
   if (plans) {
     userPlans = plans.filter(function (plan) {
       return plan.userId === currentUser._id;
     });
   }
+<<<<<<< HEAD
+=======
+  console.log("plans", plans);
+  console.log("userPlans", userPlans);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
   return {
     products: Object.values(state.products),
@@ -32363,7 +32566,11 @@ var dependencies = {"d3-array":"1.2.1","d3-axis":"1.0.8","d3-brush":"1.0.4","d3-
 /*!**********************************!*\
   !*** ./node_modules/d3/index.js ***!
   \**********************************/
+<<<<<<< HEAD
 /*! exports provided: version, bisect, bisectRight, bisectLeft, ascending, bisector, cross, descending, deviation, extent, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, mean, median, merge, min, pairs, permute, quantile, range, scan, shuffle, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, axisTop, axisRight, axisBottom, axisLeft, brush, brushX, brushY, brushSelection, chord, ribbon, nest, set, map, keys, values, entries, color, rgb, hsl, lab, hcl, cubehelix, dispatch, drag, dragDisable, dragEnable, dsvFormat, csvParse, csvParseRows, csvFormat, csvFormatRows, tsvParse, tsvParseRows, tsvFormat, tsvFormatRows, easeLinear, easeQuad, easeQuadIn, easeQuadOut, easeQuadInOut, easeCubic, easeCubicIn, easeCubicOut, easeCubicInOut, easePoly, easePolyIn, easePolyOut, easePolyInOut, easeSin, easeSinIn, easeSinOut, easeSinInOut, easeExp, easeExpIn, easeExpOut, easeExpInOut, easeCircle, easeCircleIn, easeCircleOut, easeCircleInOut, easeBounce, easeBounceIn, easeBounceOut, easeBounceInOut, easeBack, easeBackIn, easeBackOut, easeBackInOut, easeElastic, easeElasticIn, easeElasticOut, easeElasticInOut, forceCenter, forceCollide, forceLink, forceManyBody, forceRadial, forceSimulation, forceX, forceY, formatDefaultLocale, format, formatPrefix, formatLocale, formatSpecifier, precisionFixed, precisionPrefix, precisionRound, geoArea, geoBounds, geoCentroid, geoCircle, geoClipAntimeridian, geoClipCircle, geoClipExtent, geoClipRectangle, geoContains, geoDistance, geoGraticule, geoGraticule10, geoInterpolate, geoLength, geoPath, geoAlbers, geoAlbersUsa, geoAzimuthalEqualArea, geoAzimuthalEqualAreaRaw, geoAzimuthalEquidistant, geoAzimuthalEquidistantRaw, geoConicConformal, geoConicConformalRaw, geoConicEqualArea, geoConicEqualAreaRaw, geoConicEquidistant, geoConicEquidistantRaw, geoEquirectangular, geoEquirectangularRaw, geoGnomonic, geoGnomonicRaw, geoIdentity, geoProjection, geoProjectionMutator, geoMercator, geoMercatorRaw, geoNaturalEarth1, geoNaturalEarth1Raw, geoOrthographic, geoOrthographicRaw, geoStereographic, geoStereographicRaw, geoTransverseMercator, geoTransverseMercatorRaw, geoRotation, geoStream, geoTransform, cluster, hierarchy, pack, packSiblings, packEnclose, partition, stratify, tree, treemap, treemapBinary, treemapDice, treemapSlice, treemapSliceDice, treemapSquarify, treemapResquarify, interpolate, interpolateArray, interpolateBasis, interpolateBasisClosed, interpolateDate, interpolateNumber, interpolateObject, interpolateRound, interpolateString, interpolateTransformCss, interpolateTransformSvg, interpolateZoom, interpolateRgb, interpolateRgbBasis, interpolateRgbBasisClosed, interpolateHsl, interpolateHslLong, interpolateLab, interpolateHcl, interpolateHclLong, interpolateCubehelix, interpolateCubehelixLong, quantize, path, polygonArea, polygonCentroid, polygonHull, polygonContains, polygonLength, quadtree, queue, randomUniform, randomNormal, randomLogNormal, randomBates, randomIrwinHall, randomExponential, request, html, json, text, xml, csv, tsv, scaleBand, scalePoint, scaleIdentity, scaleLinear, scaleLog, scaleOrdinal, scaleImplicit, scalePow, scaleSqrt, scaleQuantile, scaleQuantize, scaleThreshold, scaleTime, scaleUtc, schemeCategory10, schemeCategory20b, schemeCategory20c, schemeCategory20, interpolateCubehelixDefault, interpolateRainbow, interpolateWarm, interpolateCool, interpolateViridis, interpolateMagma, interpolateInferno, interpolatePlasma, scaleSequential, create, creator, local, matcher, mouse, namespace, namespaces, clientPoint, select, selectAll, selection, selector, selectorAll, style, touch, touches, window, event, customEvent, arc, area, line, pie, areaRadial, radialArea, lineRadial, radialLine, pointRadial, linkHorizontal, linkVertical, linkRadial, symbol, symbols, symbolCircle, symbolCross, symbolDiamond, symbolSquare, symbolStar, symbolTriangle, symbolWye, curveBasisClosed, curveBasisOpen, curveBasis, curveBundle, curveCardinalClosed, curveCardinalOpen, curveCardinal, curveCatmullRomClosed, curveCatmullRomOpen, curveCatmullRom, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOffsetExpand, stackOffsetDiverging, stackOffsetNone, stackOffsetSilhouette, stackOffsetWiggle, stackOrderAscending, stackOrderDescending, stackOrderInsideOut, stackOrderNone, stackOrderReverse, timeInterval, timeMillisecond, timeMilliseconds, utcMillisecond, utcMilliseconds, timeSecond, timeSeconds, utcSecond, utcSeconds, timeMinute, timeMinutes, timeHour, timeHours, timeDay, timeDays, timeWeek, timeWeeks, timeSunday, timeSundays, timeMonday, timeMondays, timeTuesday, timeTuesdays, timeWednesday, timeWednesdays, timeThursday, timeThursdays, timeFriday, timeFridays, timeSaturday, timeSaturdays, timeMonth, timeMonths, timeYear, timeYears, utcMinute, utcMinutes, utcHour, utcHours, utcDay, utcDays, utcWeek, utcWeeks, utcSunday, utcSundays, utcMonday, utcMondays, utcTuesday, utcTuesdays, utcWednesday, utcWednesdays, utcThursday, utcThursdays, utcFriday, utcFridays, utcSaturday, utcSaturdays, utcMonth, utcMonths, utcYear, utcYears, timeFormatDefaultLocale, timeFormat, timeParse, utcFormat, utcParse, timeFormatLocale, isoFormat, isoParse, now, timer, timerFlush, timeout, interval, transition, active, interrupt, voronoi, zoom, zoomTransform, zoomIdentity */
+=======
+/*! exports provided: version, scaleBand, scalePoint, scaleIdentity, scaleLinear, scaleLog, scaleOrdinal, scaleImplicit, scalePow, scaleSqrt, scaleQuantile, scaleQuantize, scaleThreshold, scaleTime, scaleUtc, schemeCategory10, schemeCategory20b, schemeCategory20c, schemeCategory20, interpolateCubehelixDefault, interpolateRainbow, interpolateWarm, interpolateCool, interpolateViridis, interpolateMagma, interpolateInferno, interpolatePlasma, scaleSequential, bisect, bisectRight, bisectLeft, ascending, bisector, cross, descending, deviation, extent, histogram, thresholdFreedmanDiaconis, thresholdScott, thresholdSturges, max, mean, median, merge, min, pairs, permute, quantile, range, scan, shuffle, sum, ticks, tickIncrement, tickStep, transpose, variance, zip, axisTop, axisRight, axisBottom, axisLeft, brush, brushX, brushY, brushSelection, chord, ribbon, nest, set, map, keys, values, entries, color, rgb, hsl, lab, hcl, cubehelix, dispatch, drag, dragDisable, dragEnable, dsvFormat, csvParse, csvParseRows, csvFormat, csvFormatRows, tsvParse, tsvParseRows, tsvFormat, tsvFormatRows, easeLinear, easeQuad, easeQuadIn, easeQuadOut, easeQuadInOut, easeCubic, easeCubicIn, easeCubicOut, easeCubicInOut, easePoly, easePolyIn, easePolyOut, easePolyInOut, easeSin, easeSinIn, easeSinOut, easeSinInOut, easeExp, easeExpIn, easeExpOut, easeExpInOut, easeCircle, easeCircleIn, easeCircleOut, easeCircleInOut, easeBounce, easeBounceIn, easeBounceOut, easeBounceInOut, easeBack, easeBackIn, easeBackOut, easeBackInOut, easeElastic, easeElasticIn, easeElasticOut, easeElasticInOut, forceCenter, forceCollide, forceLink, forceManyBody, forceRadial, forceSimulation, forceX, forceY, formatDefaultLocale, format, formatPrefix, formatLocale, formatSpecifier, precisionFixed, precisionPrefix, precisionRound, geoArea, geoBounds, geoCentroid, geoCircle, geoClipAntimeridian, geoClipCircle, geoClipExtent, geoClipRectangle, geoContains, geoDistance, geoGraticule, geoGraticule10, geoInterpolate, geoLength, geoPath, geoAlbers, geoAlbersUsa, geoAzimuthalEqualArea, geoAzimuthalEqualAreaRaw, geoAzimuthalEquidistant, geoAzimuthalEquidistantRaw, geoConicConformal, geoConicConformalRaw, geoConicEqualArea, geoConicEqualAreaRaw, geoConicEquidistant, geoConicEquidistantRaw, geoEquirectangular, geoEquirectangularRaw, geoGnomonic, geoGnomonicRaw, geoIdentity, geoProjection, geoProjectionMutator, geoMercator, geoMercatorRaw, geoNaturalEarth1, geoNaturalEarth1Raw, geoOrthographic, geoOrthographicRaw, geoStereographic, geoStereographicRaw, geoTransverseMercator, geoTransverseMercatorRaw, geoRotation, geoStream, geoTransform, cluster, hierarchy, pack, packSiblings, packEnclose, partition, stratify, tree, treemap, treemapBinary, treemapDice, treemapSlice, treemapSliceDice, treemapSquarify, treemapResquarify, interpolate, interpolateArray, interpolateBasis, interpolateBasisClosed, interpolateDate, interpolateNumber, interpolateObject, interpolateRound, interpolateString, interpolateTransformCss, interpolateTransformSvg, interpolateZoom, interpolateRgb, interpolateRgbBasis, interpolateRgbBasisClosed, interpolateHsl, interpolateHslLong, interpolateLab, interpolateHcl, interpolateHclLong, interpolateCubehelix, interpolateCubehelixLong, quantize, path, polygonArea, polygonCentroid, polygonHull, polygonContains, polygonLength, quadtree, queue, randomUniform, randomNormal, randomLogNormal, randomBates, randomIrwinHall, randomExponential, request, html, json, text, xml, csv, tsv, create, creator, local, matcher, mouse, namespace, namespaces, clientPoint, select, selectAll, selection, selector, selectorAll, style, touch, touches, window, event, customEvent, arc, area, line, pie, areaRadial, radialArea, lineRadial, radialLine, pointRadial, linkHorizontal, linkVertical, linkRadial, symbol, symbols, symbolCircle, symbolCross, symbolDiamond, symbolSquare, symbolStar, symbolTriangle, symbolWye, curveBasisClosed, curveBasisOpen, curveBasis, curveBundle, curveCardinalClosed, curveCardinalOpen, curveCardinal, curveCatmullRomClosed, curveCatmullRomOpen, curveCatmullRom, curveLinearClosed, curveLinear, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOffsetExpand, stackOffsetDiverging, stackOffsetNone, stackOffsetSilhouette, stackOffsetWiggle, stackOrderAscending, stackOrderDescending, stackOrderInsideOut, stackOrderNone, stackOrderReverse, timeInterval, timeMillisecond, timeMilliseconds, utcMillisecond, utcMilliseconds, timeSecond, timeSeconds, utcSecond, utcSeconds, timeMinute, timeMinutes, timeHour, timeHours, timeDay, timeDays, timeWeek, timeWeeks, timeSunday, timeSundays, timeMonday, timeMondays, timeTuesday, timeTuesdays, timeWednesday, timeWednesdays, timeThursday, timeThursdays, timeFriday, timeFridays, timeSaturday, timeSaturdays, timeMonth, timeMonths, timeYear, timeYears, utcMinute, utcMinutes, utcHour, utcHours, utcDay, utcDays, utcWeek, utcWeeks, utcSunday, utcSundays, utcMonday, utcMondays, utcTuesday, utcTuesdays, utcWednesday, utcWednesdays, utcThursday, utcThursdays, utcFriday, utcFridays, utcSaturday, utcSaturdays, utcMonth, utcMonths, utcYear, utcYears, timeFormatDefaultLocale, timeFormat, timeParse, utcFormat, utcParse, timeFormatLocale, isoFormat, isoParse, now, timer, timerFlush, timeout, interval, transition, active, interrupt, voronoi, zoom, zoomTransform, zoomIdentity */
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33436,7 +33643,7 @@ module.exports = camelizeStyleName;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 var isTextNode = __webpack_require__(/*! ./isTextNode */ "./node_modules/fbjs/lib/isTextNode.js");
@@ -33484,7 +33691,7 @@ module.exports = containsNode;
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  *
- * 
+ *
  */
 
 function makeEmptyFunction(arg) {
@@ -33823,7 +34030,7 @@ module.exports = isTextNode;
  * LICENSE file in the root directory of this source tree.
  *
  * @typechecks
- * 
+ *
  */
 
 /*eslint-disable no-self-compare */
@@ -47912,7 +48119,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                                                                                                                                                                                                                                                                                * Based on https://github.com/jsstyles/css-vendor, but without having to
                                                                                                                                                                                                                                                                                * convert between different cases all the time.
                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                               * 
+                                                                                                                                                                                                                                                                               *
                                                                                                                                                                                                                                                                                */
 
 exports.getPrefixedKeyframes = getPrefixedKeyframes;
@@ -71441,7 +71648,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
   selectorFactory, which has the signature:
 
     (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
-  
+
   connect passes its args to connectAdvanced as options, which will in turn pass them to
   selectorFactory each time a Connect component instance is instantiated or hot reloaded.
 
@@ -71837,7 +72044,7 @@ function wrapMapToPropsConstant(getConstant) {
 // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
 // to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
 // whether mapToProps needs to be invoked when props have changed.
-// 
+//
 // A length of one signals that mapToProps does not depend on props from the parent component.
 // A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
 // therefore not reporting its length accurately..
@@ -71847,16 +72054,16 @@ function getDependsOnOwnProps(mapToProps) {
 
 // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
 // this function wraps mapToProps in a proxy function which does several things:
-// 
+//
 //  * Detects whether the mapToProps function being called depends on props, which
 //    is used by selectorFactory to decide if it should reinvoke on props changes.
-//    
+//
 //  * On first call, handles mapToProps if returns another function, and treats that
 //    new function as the true mapToProps for subsequent calls.
-//    
+//
 //  * On first call, verifies the first result is a plain object, in order to warn
 //    the developer that their mapToProps function is not returning a valid result.
-//    
+//
 function wrapMapToPropsFunc(mapToProps, methodName) {
   return function initProxySelector(dispatch, _ref) {
     var displayName = _ref.displayName;
@@ -75842,6 +76049,22 @@ if (false) {} else {
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
+/***/ "./node_modules/redux-logger/dist/redux-logger.js":
+/*!********************************************************!*\
+  !*** ./node_modules/redux-logger/dist/redux-logger.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {!function(e,t){ true?t(exports):undefined}(this,function(e){"use strict";function t(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}function r(e,t){Object.defineProperty(this,"kind",{value:e,enumerable:!0}),t&&t.length&&Object.defineProperty(this,"path",{value:t,enumerable:!0})}function n(e,t,r){n.super_.call(this,"E",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0}),Object.defineProperty(this,"rhs",{value:r,enumerable:!0})}function o(e,t){o.super_.call(this,"N",e),Object.defineProperty(this,"rhs",{value:t,enumerable:!0})}function i(e,t){i.super_.call(this,"D",e),Object.defineProperty(this,"lhs",{value:t,enumerable:!0})}function a(e,t,r){a.super_.call(this,"A",e),Object.defineProperty(this,"index",{value:t,enumerable:!0}),Object.defineProperty(this,"item",{value:r,enumerable:!0})}function f(e,t,r){var n=e.slice((r||t)+1||e.length);return e.length=t<0?e.length+t:t,e.push.apply(e,n),e}function u(e){var t="undefined"==typeof e?"undefined":N(e);return"object"!==t?t:e===Math?"math":null===e?"null":Array.isArray(e)?"array":"[object Date]"===Object.prototype.toString.call(e)?"date":"function"==typeof e.toString&&/^\/.*\//.test(e.toString())?"regexp":"object"}function l(e,t,r,c,s,d,p){s=s||[],p=p||[];var g=s.slice(0);if("undefined"!=typeof d){if(c){if("function"==typeof c&&c(g,d))return;if("object"===("undefined"==typeof c?"undefined":N(c))){if(c.prefilter&&c.prefilter(g,d))return;if(c.normalize){var h=c.normalize(g,d,e,t);h&&(e=h[0],t=h[1])}}}g.push(d)}"regexp"===u(e)&&"regexp"===u(t)&&(e=e.toString(),t=t.toString());var y="undefined"==typeof e?"undefined":N(e),v="undefined"==typeof t?"undefined":N(t),b="undefined"!==y||p&&p[p.length-1].lhs&&p[p.length-1].lhs.hasOwnProperty(d),m="undefined"!==v||p&&p[p.length-1].rhs&&p[p.length-1].rhs.hasOwnProperty(d);if(!b&&m)r(new o(g,t));else if(!m&&b)r(new i(g,e));else if(u(e)!==u(t))r(new n(g,e,t));else if("date"===u(e)&&e-t!==0)r(new n(g,e,t));else if("object"===y&&null!==e&&null!==t)if(p.filter(function(t){return t.lhs===e}).length)e!==t&&r(new n(g,e,t));else{if(p.push({lhs:e,rhs:t}),Array.isArray(e)){var w;e.length;for(w=0;w<e.length;w++)w>=t.length?r(new a(g,w,new i(void 0,e[w]))):l(e[w],t[w],r,c,g,w,p);for(;w<t.length;)r(new a(g,w,new o(void 0,t[w++])))}else{var x=Object.keys(e),S=Object.keys(t);x.forEach(function(n,o){var i=S.indexOf(n);i>=0?(l(e[n],t[n],r,c,g,n,p),S=f(S,i)):l(e[n],void 0,r,c,g,n,p)}),S.forEach(function(e){l(void 0,t[e],r,c,g,e,p)})}p.length=p.length-1}else e!==t&&("number"===y&&isNaN(e)&&isNaN(t)||r(new n(g,e,t)))}function c(e,t,r,n){return n=n||[],l(e,t,function(e){e&&n.push(e)},r),n.length?n:void 0}function s(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":s(o[r.path[n]],r.index,r.item);break;case"D":delete o[r.path[n]];break;case"E":case"N":o[r.path[n]]=r.rhs}}else switch(r.kind){case"A":s(e[t],r.index,r.item);break;case"D":e=f(e,t);break;case"E":case"N":e[t]=r.rhs}return e}function d(e,t,r){if(e&&t&&r&&r.kind){for(var n=e,o=-1,i=r.path?r.path.length-1:0;++o<i;)"undefined"==typeof n[r.path[o]]&&(n[r.path[o]]="number"==typeof r.path[o]?[]:{}),n=n[r.path[o]];switch(r.kind){case"A":s(r.path?n[r.path[o]]:n,r.index,r.item);break;case"D":delete n[r.path[o]];break;case"E":case"N":n[r.path[o]]=r.rhs}}}function p(e,t,r){if(r.path&&r.path.length){var n,o=e[t],i=r.path.length-1;for(n=0;n<i;n++)o=o[r.path[n]];switch(r.kind){case"A":p(o[r.path[n]],r.index,r.item);break;case"D":o[r.path[n]]=r.lhs;break;case"E":o[r.path[n]]=r.lhs;break;case"N":delete o[r.path[n]]}}else switch(r.kind){case"A":p(e[t],r.index,r.item);break;case"D":e[t]=r.lhs;break;case"E":e[t]=r.lhs;break;case"N":e=f(e,t)}return e}function g(e,t,r){if(e&&t&&r&&r.kind){var n,o,i=e;for(o=r.path.length-1,n=0;n<o;n++)"undefined"==typeof i[r.path[n]]&&(i[r.path[n]]={}),i=i[r.path[n]];switch(r.kind){case"A":p(i[r.path[n]],r.index,r.item);break;case"D":i[r.path[n]]=r.lhs;break;case"E":i[r.path[n]]=r.lhs;break;case"N":delete i[r.path[n]]}}}function h(e,t,r){if(e&&t){var n=function(n){r&&!r(e,t,n)||d(e,t,n)};l(e,t,n)}}function y(e){return"color: "+F[e].color+"; font-weight: bold"}function v(e){var t=e.kind,r=e.path,n=e.lhs,o=e.rhs,i=e.index,a=e.item;switch(t){case"E":return[r.join("."),n,"→",o];case"N":return[r.join("."),o];case"D":return[r.join(".")];case"A":return[r.join(".")+"["+i+"]",a];default:return[]}}function b(e,t,r,n){var o=c(e,t);try{n?r.groupCollapsed("diff"):r.group("diff")}catch(e){r.log("diff")}o?o.forEach(function(e){var t=e.kind,n=v(e);r.log.apply(r,["%c "+F[t].text,y(t)].concat(P(n)))}):r.log("—— no diff ——");try{r.groupEnd()}catch(e){r.log("—— diff end —— ")}}function m(e,t,r,n){switch("undefined"==typeof e?"undefined":N(e)){case"object":return"function"==typeof e[n]?e[n].apply(e,P(r)):e[n];case"function":return e(t);default:return e}}function w(e){var t=e.timestamp,r=e.duration;return function(e,n,o){var i=["action"];return i.push("%c"+String(e.type)),t&&i.push("%c@ "+n),r&&i.push("%c(in "+o.toFixed(2)+" ms)"),i.join(" ")}}function x(e,t){var r=t.logger,n=t.actionTransformer,o=t.titleFormatter,i=void 0===o?w(t):o,a=t.collapsed,f=t.colors,u=t.level,l=t.diff,c="undefined"==typeof t.titleFormatter;e.forEach(function(o,s){var d=o.started,p=o.startedTime,g=o.action,h=o.prevState,y=o.error,v=o.took,w=o.nextState,x=e[s+1];x&&(w=x.prevState,v=x.started-d);var S=n(g),k="function"==typeof a?a(function(){return w},g,o):a,j=D(p),E=f.title?"color: "+f.title(S)+";":"",A=["color: gray; font-weight: lighter;"];A.push(E),t.timestamp&&A.push("color: gray; font-weight: lighter;"),t.duration&&A.push("color: gray; font-weight: lighter;");var O=i(S,j,v);try{k?f.title&&c?r.groupCollapsed.apply(r,["%c "+O].concat(A)):r.groupCollapsed(O):f.title&&c?r.group.apply(r,["%c "+O].concat(A)):r.group(O)}catch(e){r.log(O)}var N=m(u,S,[h],"prevState"),P=m(u,S,[S],"action"),C=m(u,S,[y,h],"error"),F=m(u,S,[w],"nextState");if(N)if(f.prevState){var L="color: "+f.prevState(h)+"; font-weight: bold";r[N]("%c prev state",L,h)}else r[N]("prev state",h);if(P)if(f.action){var T="color: "+f.action(S)+"; font-weight: bold";r[P]("%c action    ",T,S)}else r[P]("action    ",S);if(y&&C)if(f.error){var M="color: "+f.error(y,h)+"; font-weight: bold;";r[C]("%c error     ",M,y)}else r[C]("error     ",y);if(F)if(f.nextState){var _="color: "+f.nextState(w)+"; font-weight: bold";r[F]("%c next state",_,w)}else r[F]("next state",w);l&&b(h,w,r,k);try{r.groupEnd()}catch(e){r.log("—— log end ——")}})}function S(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=Object.assign({},L,e),r=t.logger,n=t.stateTransformer,o=t.errorTransformer,i=t.predicate,a=t.logErrors,f=t.diffPredicate;if("undefined"==typeof r)return function(){return function(e){return function(t){return e(t)}}};if(e.getState&&e.dispatch)return console.error("[redux-logger] redux-logger not installed. Make sure to pass logger instance as middleware:\n// Logger with default options\nimport { logger } from 'redux-logger'\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n// Or you can create your own logger with custom options http://bit.ly/redux-logger-options\nimport createLogger from 'redux-logger'\nconst logger = createLogger({\n  // ...options\n});\nconst store = createStore(\n  reducer,\n  applyMiddleware(logger)\n)\n"),function(){return function(e){return function(t){return e(t)}}};var u=[];return function(e){var r=e.getState;return function(e){return function(l){if("function"==typeof i&&!i(r,l))return e(l);var c={};u.push(c),c.started=O.now(),c.startedTime=new Date,c.prevState=n(r()),c.action=l;var s=void 0;if(a)try{s=e(l)}catch(e){c.error=o(e)}else s=e(l);c.took=O.now()-c.started,c.nextState=n(r());var d=t.diff&&"function"==typeof f?f(r,l):t.diff;if(x(u,Object.assign({},t,{diff:d})),u.length=0,c.error)throw c.error;return s}}}}var k,j,E=function(e,t){return new Array(t+1).join(e)},A=function(e,t){return E("0",t-e.toString().length)+e},D=function(e){return A(e.getHours(),2)+":"+A(e.getMinutes(),2)+":"+A(e.getSeconds(),2)+"."+A(e.getMilliseconds(),3)},O="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance:Date,N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},P=function(e){if(Array.isArray(e)){for(var t=0,r=Array(e.length);t<e.length;t++)r[t]=e[t];return r}return Array.from(e)},C=[];k="object"===("undefined"==typeof global?"undefined":N(global))&&global?global:"undefined"!=typeof window?window:{},j=k.DeepDiff,j&&C.push(function(){"undefined"!=typeof j&&k.DeepDiff===c&&(k.DeepDiff=j,j=void 0)}),t(n,r),t(o,r),t(i,r),t(a,r),Object.defineProperties(c,{diff:{value:c,enumerable:!0},observableDiff:{value:l,enumerable:!0},applyDiff:{value:h,enumerable:!0},applyChange:{value:d,enumerable:!0},revertChange:{value:g,enumerable:!0},isConflict:{value:function(){return"undefined"!=typeof j},enumerable:!0},noConflict:{value:function(){return C&&(C.forEach(function(e){e()}),C=null),c},enumerable:!0}});var F={E:{color:"#2196F3",text:"CHANGED:"},N:{color:"#4CAF50",text:"ADDED:"},D:{color:"#F44336",text:"DELETED:"},A:{color:"#2196F3",text:"ARRAY:"}},L={level:"log",logger:console,logErrors:!0,collapsed:void 0,predicate:void 0,duration:!1,timestamp:!0,stateTransformer:function(e){return e},actionTransformer:function(e){return e},errorTransformer:function(e){return e},colors:{title:function(){return"inherit"},prevState:function(){return"#9E9E9E"},action:function(){return"#03A9F4"},nextState:function(){return"#4CAF50"},error:function(){return"#F20404"}},diff:!1,diffPredicate:void 0,transformer:void 0},T=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},t=e.dispatch,r=e.getState;return"function"==typeof t||"function"==typeof r?S()({dispatch:t,getState:r}):void console.error("\n[redux-logger v3] BREAKING CHANGE\n[redux-logger v3] Since 3.0.0 redux-logger exports by default logger with default settings.\n[redux-logger v3] Change\n[redux-logger v3] import createLogger from 'redux-logger'\n[redux-logger v3] to\n[redux-logger v3] import { createLogger } from 'redux-logger'\n")};e.defaults=L,e.createLogger=S,e.logger=T,e.default=T,Object.defineProperty(e,"__esModule",{value:!0})});
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 /***/ "./node_modules/redux-thunk/es/index.js":
 /*!**********************************************!*\
   !*** ./node_modules/redux-thunk/es/index.js ***!
@@ -77325,6 +77548,21 @@ var _reactCookies = __webpack_require__(/*! react-cookies */ "./node_modules/rea
 
 var _reactCookies2 = _interopRequireDefault(_reactCookies);
 
+<<<<<<< HEAD
+=======
+var _product_util = __webpack_require__(/*! ../util/product_util */ "./util/product_util.js");
+
+var _plan_action = __webpack_require__(/*! ../actions/plan_action */ "./actions/plan_action.js");
+
+var _root_reducer = __webpack_require__(/*! ../reducers/root_reducer */ "./reducers/root_reducer.js");
+
+var _root_reducer2 = _interopRequireDefault(_root_reducer);
+
+var _session_action = __webpack_require__(/*! ../actions/session_action */ "./actions/session_action.js");
+
+var _product_action = __webpack_require__(/*! ../actions/product_action */ "./actions/product_action.js");
+
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -77334,6 +77572,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var actualToken = token.split('.')[1];
     var userInfo = actualToken.replace('-', '+').replace('_', '/');
     var currentUser = JSON.parse(window.atob(userInfo));
+<<<<<<< HEAD
+=======
+    console.log(currentUser);
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 
     var preloadedState = {
       auth: { authenticated: true },
@@ -77344,10 +77586,44 @@ document.addEventListener("DOMContentLoaded", function () {
     store = (0, _store2.default)();
   }
 
+<<<<<<< HEAD
+=======
+  window.requestUserProducts = _product_action.requestUserProducts;
+  window.requestOneProduct = _product_action.requestOneProduct;
+  // window.fetchAllProducts = fetchAllProducts;
+  // window.requestOneProduct = requestOneProduct;
+  window.requestAllProducts = _product_action.requestAllProducts;
+  window.createProduct = _product_action.createProduct;
+  window.fetchUserProducts = _product_util.fetchUserProducts;
+  window.createUserProduct = _product_action.createUserProduct;
+
+  window.requestOnePlan = _plan_action.requestOnePlan;
+  window.requestAllPlans = _plan_action.requestAllPlans;
+  window.createPlan = _plan_action.createPlan;
+  window.removePlan = _plan_action.removePlan;
+  window.updatePlan = _plan_action.updatePlan;
+  // window.fetchOneProduct = fetchOneProduct;
+
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  window.receiveCurrentUser = _session_action.receiveCurrentUser;
+  window.login = _session_action.login;
+  window.register = _session_action.register;
+  window.logout = _session_action.logout;
+  window.rootReducer = _root_reducer2.default;
+  console.log(_store2.default);
+
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
   var root = document.getElementById('root');
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
 
+<<<<<<< HEAD
+=======
+// import { register, login } from '../util/session_api_utils';
+
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 /***/ }),
 
 /***/ "./store/store.js":
@@ -77366,6 +77642,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 
+<<<<<<< HEAD
+=======
+var _reduxLogger = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
+
+var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 var _reduxThunk = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
@@ -77378,7 +77661,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+<<<<<<< HEAD
   return (0, _redux.createStore)(_root_reducer2.default, preloadedState, (0, _redux.applyMiddleware)(_reduxThunk2.default));
+=======
+  return (0, _redux.createStore)(_root_reducer2.default, preloadedState, (0, _redux.applyMiddleware)(_reduxThunk2.default, _reduxLogger2.default));
+>>>>>>> 447bda7969abb3be8f42a90344ddd6f860b59c35
 };
 
 exports.default = configureStore;

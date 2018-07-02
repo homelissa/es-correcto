@@ -17,14 +17,13 @@ export const receiveCurrentUser = currentUser => ({
 });
 
 export const logoutCurrentUser = () => ({
-  type: LOGOUT_CURRENT_USER,
+  type: LOGOUT_CURRENT_USER
 });
 
 export const clearErrors = errors => ({
   type: CLEARERRORS,
   errors
 });
-
 
 export const login = user => dispatch => {
   return APIUtil.login(user).then(user => {
@@ -54,7 +53,6 @@ export const logout = () => dispatch => {
     // window.location.href = '/#/login';
 
 };
-
 
 export const register = user => dispatch => {
   return APIUtil.register(user).then(user => {
