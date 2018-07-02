@@ -22,6 +22,14 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "webpack": "^4.12.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
     "ajv": "^6.5.2",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",

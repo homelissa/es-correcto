@@ -4,7 +4,11 @@
   "description": "## Background and Overview Es-correcto is a web application designed to assist users in managing their subscriptions.",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others \"npm run start-frontend\" \"npm run start-backend\"",
+    "start-frontend": "cd client && npm start",
+    "start-backend": "cd server && node index.js",
+    "postinstall": "cd client && npm postinstall"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.6",
