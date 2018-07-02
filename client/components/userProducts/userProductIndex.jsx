@@ -15,7 +15,8 @@ class UserProductIndex extends React.Component {
     let d = date.getDate() + 1;
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
-    return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    // return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    return '' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d) + '-' + y;
   }
   // userProduct is an object
   productReport(plan){
@@ -43,17 +44,18 @@ class UserProductIndex extends React.Component {
       annualYear = temp.getFullYear() + 1;
     }
     let nextYear = annualYear + 1;
-    let annualPaydate = '' + annualYear + '-' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate);
-    let annualnextPaydate = '' + nextYear + '-' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate);
+    let annualPaydate = '' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate) + '-' + annualYear ;
+    let annualnextPaydate = '' + (annualMonth<=9 ? '0' + annualMonth : annualMonth) + '-' + (annualDate <= 9 ? '0' + annualDate : annualDate) + '-' + nextYear ;
     let currentDate;
     if(plan.paymentFrequency === 1){
-      currentDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+      // currentDate = '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+      currentDate = '' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d) + '-' + y;
     } else if(plan.paymentFrequency === 12){
       currentDate = annualPaydate;
     }
     let nextDate;
     if(plan.paymentFrequency === 1){
-      nextDate = '' + y + '-' + (M<=9 ? '0' + M : M) + '-' + (d <= 9 ? '0' + d : d);
+      nextDate = '' + (M<=9 ? '0' + M : M) + '-' + (d <= 9 ? '0' + d : d) + '-' + y;
     } else if(plan.paymentFrequency === 12){
       nextDate = annualnextPaydate;
     }
