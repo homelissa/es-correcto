@@ -1,7 +1,7 @@
 export const register = user => {
   return $.ajax({
     method: 'POST',
-    url: 'http://localhost:3000/api/auth/register',
+    url: 'https://kinder-canoe-23872.herokuapp.com/api/auth/register',
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(user)
@@ -11,7 +11,7 @@ export const register = user => {
 export const login = user => {
   return $.ajax({
     type: 'POST',
-    url: 'http://localhost:3000/api/auth/login',
+    url: 'https://kinder-canoe-23872.herokuapp.com/api/auth/login',
     dataType: 'html',
     contentType: "application/json; charset=utf-8",
     data: JSON.stringify(user)
