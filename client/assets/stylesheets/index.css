@@ -71,3 +71,27 @@ html {
 .logout-button {
   cursor: pointer;
 }
+
+.footer {
+
+  margin-top: 60px;
+  position: relative;
+  left: 0;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #666;
+  color: white;
+  font-size: 24px;
+  line-height: 30px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+
+}
+
+.footer-top{
+  margin-top: 90px;
+  border-top: 1px solid lightgray;
+}

@@ -10,7 +10,15 @@ render() {
     <p> Start Saving!</p>
     <p> We provide you with monthly reports based on your subscription plans and your period costs</p>
     <p> We also send you email remainders informing you when a payment is due.</p>
-    <img src="https://res.cloudinary.com/archhere/image/upload/v1530491167/U_Pack2_v2._CB499173699_.gif"/>
+      <div className = "footer-top">
+      <div className='footer'>
+            <div id='footer-caption'>
+              Made by Archana Kannan, Bryan Lin, Mellisa Ho and Andzu Schaefer
+            </div>
+
+
+        </div>
+        </div>
     </div>
 
   );
