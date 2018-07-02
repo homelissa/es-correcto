@@ -71,15 +71,18 @@ html {
 .logout-button {
   cursor: pointer;
 }
+.homepage{
+  text-align: center;
+}
 
 .footer {
 
-  margin-top: 60px;
+  margin-top: 20px;
   position: relative;
   left: 0;
   width: 100%;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   right: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -91,7 +94,23 @@ html {
 
 }
 
+.gitimg{
+  height: 30px;
+  width: 30px;
+  position: relative;
+  top: 5px;
+  left: 10px;
+}
+
+.footer-caption{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .footer-top{
   margin-top: 90px;
   border-top: 1px solid lightgray;
+  align-items: center;
+
 }

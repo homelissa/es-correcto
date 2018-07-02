@@ -50,8 +50,8 @@ class AddProductForm extends React.Component {
             </label>
             <br />
             <br />
-            <button onClick={this.handleCancel}>Cancel</button>
-            <input type="submit" value='Create Plan' className="change-form-submit" />
+
+            <input type="submit" value='Create Product' className="change-form-submit" />
           </form>
         </div>
         : null
