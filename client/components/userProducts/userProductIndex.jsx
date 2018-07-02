@@ -6,7 +6,6 @@ class UserProductIndex extends React.Component {
   componentDidMount() {
     this.props.fetchUserProducts();
     this.props.requestAllPlans();
-    console.log("component did mount");
 
   }
 
@@ -167,7 +166,6 @@ class UserProductIndex extends React.Component {
 
   render() {
     let products = this.props.products;
-    console.log("products",products);
     var productWithPlans;
     if (products){
       productWithPlans = products.map((product)=> {
@@ -178,7 +176,6 @@ class UserProductIndex extends React.Component {
       });
       // return productWithPlans;
     }
-    console.log("productwithplans",productWithPlans);
 
     // if (!productWithPlans) {
     //   return (
@@ -199,7 +196,6 @@ class UserProductIndex extends React.Component {
         </div>
       );
     } else if (this.props.type === "userReport") {
-      console.log("productWithPlans",productWithPlans);
       let plans = productWithPlans.map(userProduct => {
         let plan = userProduct.plans;
         plan.map(object => {
@@ -210,7 +206,6 @@ class UserProductIndex extends React.Component {
       });
       plans = plans.filter(plan => plan.length > 0);
       plans = plans.reduce((acc, currentValue) => acc.concat(currentValue), []);
-      console.log(plans);
 
       let sum = {};
       let costs = plans.map(plan => {

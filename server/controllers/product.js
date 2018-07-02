@@ -35,7 +35,6 @@ exports.getProduct = function(req, res, next) {
 };
 
 exports.getUserProducts = function(req, res, next) {
-  console.log("getUserProducts");
   // const userId1 = req.params.userId;
   let token = req.headers.authorization;
   const userId = jwtDecode(JSON.stringify(token))._id;
@@ -62,7 +61,6 @@ exports.getUserProducts = function(req, res, next) {
 
 
 exports.addUserProducts = function(req,res,next) {
-  console.log("in add user products");
   let token = req.headers.authorization;
   const name = req.body.name;
   let img_url = req.body.img_url || "https://res.cloudinary.com/archhere/image/upload/v1530317711/subscribe_thing.png"

@@ -8,7 +8,6 @@ class AddProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props);
     this.state = {
       name: '',
     };
@@ -22,7 +21,6 @@ class AddProductForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.action(this.state).then((action) => this.props.history.push(`/products`))
 
   }

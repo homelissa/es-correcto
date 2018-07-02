@@ -8,7 +8,6 @@ import cookie from 'react-cookies';
 
 const mapStateToProps = state => {
   let plans = Object.values(state.plans);
-  console.log("state",state);
   let token = cookie.load('token');
   let currentUser;
   if (token) {
@@ -17,13 +16,10 @@ const mapStateToProps = state => {
     currentUser = JSON.parse(window.atob(userInfo));
   }
 
-  console.log("currentUser",currentUser);
   let userPlans = [];
   if (plans){
     userPlans = plans.filter(plan => plan.userId === currentUser._id);
   }
-  console.log("plans",plans);
-  console.log("userPlans",userPlans);
 
   return {
     products: Object.values(state.products),

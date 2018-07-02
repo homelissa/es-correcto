@@ -37,7 +37,6 @@ export const login = user => dispatch => {
 
     dispatch(receiveCurrentUser(user));
   },(error) => {
-      console.log(error)
       APIUtil.errorHandler(dispatch,error,AUTH_ERROR);
     });
 };
@@ -68,7 +67,6 @@ export const register = user => dispatch => {
 
     dispatch(receiveCurrentUser(user));
   },(error) => {
-      console.log(error);
       APIUtil.errorHandler(dispatch,error,AUTH_ERROR);
     });
 };

@@ -46,7 +46,6 @@ var plan1 = new Plan({
           enrollmentDate: currentDate
 });
 plan1.save();
-console.log(`plan1 id: ${plan1._id}`);
 var notification1 = new Notification({
           planId: plan1._id,
           // planId: 1,
@@ -81,6 +80,4 @@ var product = new Product({
           plans: [plan1],
           users: [user1]
 });
-console.log(user2);
-console.log(product);
 product.save();
