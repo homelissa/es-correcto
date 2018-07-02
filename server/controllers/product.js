@@ -73,9 +73,14 @@ exports.addUserProducts = function(req,res,next) {
     return res.status(422).send({ error: 'You must enter a product name.'});
   }
 
-  // if(!userId){
-  //   return res.status(422).send({ error: 'Plz sign in before you add a product'});
-  // }
+  Product.findOne({ name: name }, function(err, existingName) {
+      if (err) { return next(err); }
+
+      // If user is not unique, return error
+      if (existingName) {
+        return res.status(422).send({ error: 'This product already exists' });
+      }
+
 
 
   let doc = new Product ({
@@ -89,7 +94,7 @@ exports.addUserProducts = function(req,res,next) {
     if(err) { return next(err); }
     res.send(doc);
   });
-
+});
 };
 
 

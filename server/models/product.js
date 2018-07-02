@@ -4,7 +4,9 @@ const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-  name:{type: String},
+  name:{type: String,
+    
+  },
   img_url: { type: String },
   // userId: [{ type: String }],
   plans:[ Plan.schema ],
