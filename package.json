@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently --kill-others \"npm run start-frontend\" \"npm run start-backend\"",
     "start-frontend": "cd client && npm start",
-    "start-backend": "cd server && node index.js"
+    "start-backend": "cd server && node index.js",
+    "postinstall": "cd client && webpack --mode=production"
   },
   "repository": {
     "type": "git",

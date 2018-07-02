@@ -5,3 +5,4 @@ client/bundle.js
 client/bundle.js.map
 client/node_modules
 server/node_modules
+node_modules
