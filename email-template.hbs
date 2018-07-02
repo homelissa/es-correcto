@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <p>
+
+      <h2>User Monthly Email HTML Template</h2>
+      <h2>{{username}}</h2>
+      <div className="reporttable">
+        <table className="table">
+        <tr>
+          <th>Product</th>
+          <th>Cost</th>
+          <th>Enrollment Date</th>
+          <th>Current Payment Date</th>
+          <th>Next Payment Date</th>
+          <th>Amount paid this year</th>
+        </tr>
+
+        {{#each reportRows}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.cost}}</td>
+          <td>{{this.formatedDate}}</td>
+          <td>{{this.currentDate}}</td>
+          <td>{{this.nextDate}}</td>
+          <td>{{this.amountPaidThisYear}}</td>
+        </tr>
+        {{/each}}
+
+      </table>
+        <PieChart className="pie"
+          data={{sumArray}}
+        />
+      </div>
+    </p>
+  </body>
+</html>
