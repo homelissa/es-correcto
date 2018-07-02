@@ -5,9 +5,7 @@ class EditPlanForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log(this.props)
     this.state = this.props.plan;
-    console.log(this.state)
 
     // this.state = {
     //   _id: this.props.match.params.planId,
@@ -52,7 +50,6 @@ class EditPlanForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props.action(this.state).then((action) => this.props.history.push(`/userproducts`));
   }
 
@@ -60,15 +57,12 @@ class EditPlanForm extends React.Component {
     if (!this.props.plan) {
       return null;
     }
-    console.log(this.props)
-    console.log(this.state.enrollmentDate);
     let date = new Date();
     let d = date.getDate() + 1;
     let m = date.getMonth() + 1;
     let y = date.getFullYear();
     let todayDate =  '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
     let formattedDate = this.format(this.state.enrollmentDate);
-    console.log(formattedDate);
     return (
       this.state ?
         <div className="change-form-container">

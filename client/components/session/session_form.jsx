@@ -61,7 +61,6 @@ class SessionForm extends React.Component {
   // }
 
   renderErrors() {
-    console.log(this.props)
     let slice;
     if (this.props.formType === "Signup") {
       if (this.props.errors) {

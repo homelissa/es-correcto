@@ -9,7 +9,6 @@ class CreatePlanForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    console.log(this.props);
     this.state = { cost: '',
       paymentFrequency: '',
       contractLength: '',
@@ -27,7 +26,6 @@ class CreatePlanForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state)
     this.props.action(this.state).then((action) => this.props.history.push(`/userproducts`));
   }
 
@@ -37,7 +35,6 @@ class CreatePlanForm extends React.Component {
   }
 
   render() {
-    console.log(this.props.match.params.productId)
     let date = new Date();
     let d = date.getDate() + 1;
     let m = date.getMonth() + 1;

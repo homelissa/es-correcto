@@ -5,12 +5,6 @@ import configureStore from '../store/store';
 import Root from '../components/root';
 import cookie from 'react-cookies';
 
-// import { register, login } from '../util/session_api_utils';
-import { fetchAllProducts, fetchUserProducts } from '../util/product_util';
-import { requestOnePlan,requestAllPlans,createPlan, updatePlan, removePlan } from '../actions/plan_action';
-import rootReducer from '../reducers/root_reducer';
-import { RECEIVE_CURRENT_USER,AUTH_USER,UNAUTH_USER,receiveCurrentUser,login,register,logout} from '../actions/session_action';
-import { RECEIVE_ONE_PRODUCT,RECEIVE_ALL_PRODUCTS,requestUserProducts,requestOneProduct,requestAllProducts,createProduct, createUserProduct} from '../actions/product_action';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -19,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let actualToken = token.split('.')[1];
     let userInfo = actualToken.replace('-', '+').replace('_', '/');
     let currentUser = JSON.parse(window.atob(userInfo));
-    console.log(currentUser);
 
     const preloadedState = {
       auth:  { authenticated: true },
@@ -29,33 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  window.requestUserProducts = requestUserProducts;
-  window.requestOneProduct = requestOneProduct;
-  // window.fetchAllProducts = fetchAllProducts;
-  // window.requestOneProduct = requestOneProduct;
-  window.requestAllProducts = requestAllProducts;
-  window.createProduct = createProduct;
-  window.fetchUserProducts = fetchUserProducts;
-  window.createUserProduct = createUserProduct;
-
-  window.requestOnePlan = requestOnePlan;
-  window.requestAllPlans = requestAllPlans;
-  window.createPlan = createPlan;
-  window.removePlan = removePlan;
-  window.updatePlan = updatePlan;
-  // window.fetchOneProduct = fetchOneProduct;
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-
-  window.receiveCurrentUser = receiveCurrentUser;
-  window.login = login;
-  window.register = register;
-  window.logout = logout;
-  window.rootReducer = rootReducer;
-  console.log(configureStore);
-
 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store }/>, root);

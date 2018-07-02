@@ -7,7 +7,6 @@ import cookie from 'react-cookies';
 const msp = (state, ownProps) => {
   const formType = 'Create Plan';
   let product = state.products[ownProps.match.params.productId];
-  console.log("product",product);
   let token = cookie.load('token');
   let currentUser;
   if (token) {

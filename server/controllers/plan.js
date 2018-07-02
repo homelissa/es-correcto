@@ -89,7 +89,6 @@ exports.editPlan = function(req,res,next) {
 };
 
 exports.deletePlan = function(req,res,next) {
-  console.log("Hit delete")
 
   Plan.findByIdAndRemove(req.params.planId, (err, plan) => {
     if (err) return res.status(500).send(err);
