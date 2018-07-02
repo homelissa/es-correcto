@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
                 <Link to='/products' className="product-link">Products</Link>
                 <Link to="/userreports" className="report-link" > Reports</Link>
                 {/* <Link to="/login" onClick={(e) => this.props.logout()} className="logout"> Logout</Link> */}
-                <button type="button" className="logout-button" onClick={(e)=> this.props.logout()}>Logout</button>
+                <button type="button" className="logout-button" onClick={(e)=> this.props.logout().then((logout) => this.props.history.push(`/login`))}>Logout</button>
               </div>
             </div>
           </div>

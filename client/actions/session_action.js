@@ -51,7 +51,7 @@ export const logout = () => dispatch => {
 
     dispatch({ type: UNAUTH_USER });
     cookie.remove('token', { path: '/' });
-    window.location.href = '/#/login';
+    // window.location.href = '/#/login';
 
 };
 
