@@ -263,6 +263,9 @@ class UserProductIndex extends React.Component {
           <div className="pie-report">
             <h4 className="pie-title">Total expense per product subscription</h4>
               <PieChart className="pie"
+                labels
+                padding={10}
+
                 data={sumArray}
             />
           </div>
